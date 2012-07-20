@@ -1,4 +1,4 @@
-ZendService\Akismet component
+ZendCloud component
 
 You can install using:
 
