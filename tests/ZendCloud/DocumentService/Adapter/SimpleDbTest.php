@@ -8,12 +8,12 @@
  * @package   Zend_Cloud
  */
 
-namespace ZendTest\Cloud\DocumentService\Adapter;
+namespace ZendCloudTest\DocumentService\Adapter;
 
-use ZendTest\Cloud\DocumentService\TestCase;
-use Zend\Cloud\DocumentService\Adapter\SimpleDb as AdapterSimpleDb;
-use Zend\Cloud\DocumentService\Document;
-use Zend\Cloud\DocumentService\Factory;
+use ZendCloudTest\DocumentService\TestCase;
+use ZendCloud\DocumentService\Adapter\SimpleDb as AdapterSimpleDb;
+use ZendCloud\DocumentService\Document;
+use ZendCloud\DocumentService\Factory;
 use Zend\Config;
 
 /**
@@ -31,7 +31,7 @@ class SimpleDbTest extends TestCase
      */
     protected $_waitPeriod = 10;
 
-    protected $_clientType = 'Zend\Service\Amazon\SimpleDb';
+    protected $_clientType = 'ZendService\Amazon\SimpleDb';
 
     public function testUpdateDocumentMergeAll()
     {
@@ -48,7 +48,7 @@ class SimpleDbTest extends TestCase
         $this->_wait();
 
         $fetchdoc = $this->_commonDocument->fetchDocument($name, $doc->getID());
-        $this->assertTrue($fetchdoc instanceof \Zend\Cloud\DocumentService\Document, "New document not found");
+        $this->assertTrue($fetchdoc instanceof \ZendCloud\DocumentService\Document, "New document not found");
         $this->assertContains($doc->name, $fetchdoc->name, "Name field did not update: " . var_export($fetchdoc->getFields(), 1));
         $this->assertContains($doc1->name, $fetchdoc->name, "Name field did not update: " . var_export($fetchdoc->getFields(), 1));
         $this->assertContains((string) $doc->year, $fetchdoc->year, "Year field did not update: " . var_export($fetchdoc->getFields(), 1));
@@ -73,7 +73,7 @@ class SimpleDbTest extends TestCase
         $this->_wait();
 
         $fetchdoc = $this->_commonDocument->fetchDocument($name, $doc->getID());
-        $this->assertTrue($fetchdoc instanceof \Zend\Cloud\DocumentService\Document, "New document not found");
+        $this->assertTrue($fetchdoc instanceof \ZendCloud\DocumentService\Document, "New document not found");
         $this->assertEquals($doc1->name, $fetchdoc->name, "Name field did not update");
         $this->assertContains((string) $doc1->pages, $fetchdoc->pages, "Page field did not update");
         $this->assertContains((string) $doc->pages, $fetchdoc->pages, "Page field did not update");
@@ -86,7 +86,7 @@ class SimpleDbTest extends TestCase
     public static function getConfigArray()
     {
         return array(
-                Factory::DOCUMENT_ADAPTER_KEY => 'Zend\Cloud\DocumentService\Adapter\SimpleDb',
+                Factory::DOCUMENT_ADAPTER_KEY => 'ZendCloud\DocumentService\Adapter\SimpleDb',
                 AdapterSimpleDb::AWS_ACCESS_KEY => constant('TESTS_ZEND_SERVICE_AMAZON_ONLINE_ACCESSKEYID'),
                 AdapterSimpleDb::AWS_SECRET_KEY => constant('TESTS_ZEND_SERVICE_AMAZON_ONLINE_SECRETKEY'),
             );

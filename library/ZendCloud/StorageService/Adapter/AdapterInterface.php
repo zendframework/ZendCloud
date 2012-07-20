@@ -8,7 +8,7 @@
  * @package   Zend_Cloud
  */
 
-namespace Zend\Cloud\StorageService\Adapter;
+namespace ZendCloud\StorageService\Adapter;
 
 /**
  * Common interface for unstructured cloud storage.

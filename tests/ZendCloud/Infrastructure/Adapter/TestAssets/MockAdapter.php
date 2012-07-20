@@ -8,9 +8,9 @@
  * @package   Zend_Cloud
  */
 
-namespace ZendTest\Cloud\Infrastructure\Adapter\TestAssets;
+namespace ZendCloudTest\Infrastructure\Adapter\TestAssets;
 
-use Zend\Cloud\Infrastructure\Adapter\AbstractAdapter;
+use ZendCloud\Infrastructure\Adapter\AbstractAdapter;
 
 class MockAdapter extends AbstractAdapter
 {

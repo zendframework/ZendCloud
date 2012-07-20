@@ -8,11 +8,11 @@
  * @package   Zend_Cloud
  */
 
-namespace Zend\Cloud\QueueService\Adapter;
+namespace ZendCloud\QueueService\Adapter;
 
-use Zend\Cloud\QueueService\Adapter;
-use Zend\Cloud\QueueService\Message;
-use Zend\Cloud\QueueService\MessageSet;
+use ZendCloud\QueueService\Adapter;
+use ZendCloud\QueueService\Message;
+use ZendCloud\QueueService\MessageSet;
 
 /**
  * Abstract queue adapter
@@ -31,16 +31,16 @@ abstract class AbstractAdapter implements AdapterInterface
     /**@-*/
 
     /** @var string Class to use for queue messages */
-    protected $_messageClass    = 'Zend\Cloud\QueueService\Message';
+    protected $_messageClass    = 'ZendCloud\QueueService\Message';
 
     /** @var string Class to use for collections of queue messages */
-    protected $_messageSetClass = 'Zend\Cloud\QueueService\MessageSet';
+    protected $_messageSetClass = 'ZendCloud\QueueService\MessageSet';
 
     /**
      * Set class to use for message objects
      *
      * @param  string $class
-     * @return \Zend\Cloud\QueueService\Adapter\AbstractAdapter
+     * @return \ZendCloud\QueueService\Adapter\AbstractAdapter
      */
     public function setMessageClass($class)
     {
@@ -62,7 +62,7 @@ abstract class AbstractAdapter implements AdapterInterface
      * Set class to use for message collection objects
      *
      * @param  string $class
-     * @return \Zend\Cloud\QueueService\Adapter\AbstractAdapter
+     * @return \ZendCloud\QueueService\Adapter\AbstractAdapter
      */
     public function setMessageSetClass($class)
     {

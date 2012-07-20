@@ -8,11 +8,11 @@
  * @package   Zend_Cloud
  */
 
-namespace Zend\Cloud\DocumentService\Adapter\SimpleDb;
+namespace ZendCloud\DocumentService\Adapter\SimpleDb;
 
-use Zend\Cloud\DocumentService\Adapter\Exception;
-use Zend\Cloud\DocumentService\Adapter\SimpleDb as SimpleDbAdapter;
-use Zend\Cloud\DocumentService\Query as QueryInterface;
+use ZendCloud\DocumentService\Adapter\Exception;
+use ZendCloud\DocumentService\Adapter\SimpleDb as SimpleDbAdapter;
+use ZendCloud\DocumentService\Query as QueryInterface;
 
 /**
  * Class implementing Query adapter for working with SimpleDb queries in a
@@ -25,7 +25,7 @@ use Zend\Cloud\DocumentService\Query as QueryInterface;
 class Query extends QueryInterface
 {
     /**
-     * @var \Zend\Cloud\DocumentService\Adapter\SimpleDb
+     * @var \ZendCloud\DocumentService\Adapter\SimpleDb
      */
     protected $_adapter;
 

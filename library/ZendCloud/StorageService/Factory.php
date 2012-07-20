@@ -8,9 +8,9 @@
  * @package   Zend_Cloud
  */
 
-namespace Zend\Cloud\StorageService;
+namespace ZendCloud\StorageService;
 
-use Zend\Cloud\AbstractFactory;
+use ZendCloud\AbstractFactory;
 
 /**
  * @category   Zend
@@ -24,7 +24,7 @@ class Factory extends AbstractFactory
     /**
      * @var string Interface which adapter must implement to be considered valid
      */
-    protected static $_adapterInterface = 'Zend\Cloud\StorageService\Adapter\AdapterInterface';
+    protected static $_adapterInterface = 'ZendCloud\StorageService\Adapter\AdapterInterface';
     /**
      * Constructor
      *

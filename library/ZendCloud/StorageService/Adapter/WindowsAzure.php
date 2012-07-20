@@ -8,14 +8,14 @@
  * @package   Zend_Cloud
  */
 
-namespace Zend\Cloud\StorageService\Adapter;
+namespace ZendCloud\StorageService\Adapter;
 
 use Traversable;
-use Zend\Cloud\StorageService\Adapter;
-use Zend\Cloud\StorageService\Exception;
-use Zend\Service\WindowsAzure\Exception as WindowsAzureException;
-use Zend\Service\WindowsAzure\Storage\Blob\Blob;
-use Zend\Service\WindowsAzure\Storage\Storage;
+use ZendCloud\StorageService\Adapter;
+use ZendCloud\StorageService\Exception;
+use ZendService\WindowsAzure\Exception as WindowsAzureException;
+use ZendService\WindowsAzure\Storage\Blob\Blob;
+use ZendService\WindowsAzure\Storage\Storage;
 use Zend\Stdlib\ArrayUtils;
 use Zend\Stdlib\ErrorHandler;
 
@@ -61,14 +61,14 @@ class WindowsAzure implements AdapterInterface
     /**
      * Storage client
      *
-     * @var \Zend\Service\WindowsAzure\Storage\Blob\Blob
+     * @var \ZendService\WindowsAzure\Storage\Blob\Blob
      */
     protected $_storageClient = null;
 
     /**
-     * Creates a new \Zend\Cloud\Storage\WindowsAzure instance
+     * Creates a new \ZendCloud\Storage\WindowsAzure instance
      *
-     * @param  array|Traversable $options Options for the \Zend\Cloud\Storage\WindowsAzure instance
+     * @param  array|Traversable $options Options for the \ZendCloud\Storage\WindowsAzure instance
      */
     public function __construct($options = array())
     {
@@ -80,7 +80,7 @@ class WindowsAzure implements AdapterInterface
             throw new Exception\InvalidArgumentException('Invalid options provided');
         }
 
-        // Build \Zend\Service\WindowsAzure\Storage\Blob instance
+        // Build \ZendService\WindowsAzure\Storage\Blob instance
         if (!isset($options[self::HOST])) {
             $host = self::DEFAULT_HOST;
         } else {
@@ -433,7 +433,7 @@ class WindowsAzure implements AdapterInterface
 
     /**
      * Get the concrete adapter.
-     * @return \Zend\Service\WindowsAzure\Storage\Blob\Blob
+     * @return \ZendService\WindowsAzure\Storage\Blob\Blob
      */
     public function getClient()
     {

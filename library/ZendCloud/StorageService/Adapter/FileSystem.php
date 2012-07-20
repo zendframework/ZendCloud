@@ -8,11 +8,11 @@
  * @package   Zend_Cloud
  */
 
-namespace Zend\Cloud\StorageService\Adapter;
+namespace ZendCloud\StorageService\Adapter;
 
 use Traversable;
-use Zend\Cloud\StorageService\Adapter;
-use Zend\Cloud\StorageService\Exception;
+use ZendCloud\StorageService\Adapter;
+use ZendCloud\StorageService\Exception;
 use Zend\Stdlib\ArrayUtils;
 
 /**

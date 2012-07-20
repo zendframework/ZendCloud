@@ -8,12 +8,12 @@
  * @package   Zend_Cloud
  */
 
-namespace ZendTest\Cloud\Infrastructure;
+namespace ZendCloudTest\Infrastructure;
 
 use Zend\Config\Config;
-use Zend\Cloud\Infrastructure\Factory as CloudFactory;
-use ZendTest\Cloud\Infrastructure\Adapter\Ec2OfflineTest;
-use ZendTest\Cloud\Infrastructure\Adapter\RackspaceOfflineTest;
+use ZendCloud\Infrastructure\Factory as CloudFactory;
+use ZendCloudTest\Infrastructure\Adapter\Ec2OfflineTest;
+use ZendCloudTest\Infrastructure\Adapter\RackspaceOfflineTest;
 
 /**
  * Test class for Zend_Cloud_Infrastructure_Factory
@@ -37,13 +37,13 @@ class FactoryTest extends \PHPUnit_Framework_TestCase
                             new Config(Ec2OfflineTest::getConfigArray(),true)
                       );
 
-        $this->assertEquals('Zend\Cloud\Infrastructure\Adapter\Ec2', get_class($Ec2Adapter));
+        $this->assertEquals('ZendCloud\Infrastructure\Adapter\Ec2', get_class($Ec2Adapter));
 
         // Rackspace adapter
         $rackspaceAdapter = CloudFactory::getAdapter(
                                 new Config(RackspaceOfflineTest::getConfigArray(),true)
                             );
 
-        $this->assertEquals('Zend\Cloud\Infrastructure\Adapter\Rackspace', get_class($rackspaceAdapter));
+        $this->assertEquals('ZendCloud\Infrastructure\Adapter\Rackspace', get_class($rackspaceAdapter));
     }
 }

@@ -8,12 +8,12 @@
  * @package   Zend_Cloud
  */
 
-namespace Zend\Cloud\StorageService\Adapter;
+namespace ZendCloud\StorageService\Adapter;
 
 use Traversable;
-use Zend\Cloud\StorageService\Adapter;
-use Zend\Cloud\StorageService\Exception;
-use Zend\Service\Amazon\S3\S3 as AmazonS3;
+use ZendCloud\StorageService\Adapter;
+use ZendCloud\StorageService\Exception;
+use ZendService\Amazon\S3\S3 as AmazonS3;
 use Zend\Stdlib\ArrayUtils;
 
 /**
@@ -41,7 +41,7 @@ class S3 implements AdapterInterface
 
     /**
      * S3 service instance.
-     * @var \Zend\Service\Amazon\S3\S3
+     * @var \ZendService\Amazon\S3\S3
      */
     protected $_s3;
     protected $_defaultBucketName = null;
@@ -69,7 +69,7 @@ class S3 implements AdapterInterface
         try {
             $this->_s3 = new AmazonS3($options[self::AWS_ACCESS_KEY],
                                       $options[self::AWS_SECRET_KEY]);
-        } catch (\Zend\Service\Amazon\S3\Exception  $e) {
+        } catch (\ZendService\Amazon\S3\Exception  $e) {
             throw new Exception\RuntimeException('Error on create: '.$e->getMessage(), $e->getCode(), $e);
         }
 
@@ -104,7 +104,7 @@ class S3 implements AdapterInterface
             } else {
                 return $this->_s3->getObject($fullPath);
             }
-        } catch (\Zend\Service\Amazon\S3\Exception  $e) {
+        } catch (\ZendService\Amazon\S3\Exception  $e) {
             throw new Exception\RuntimeException('Error on fetch: '.$e->getMessage(), $e->getCode(), $e);
         }
     }
@@ -131,7 +131,7 @@ class S3 implements AdapterInterface
                 $data,
                 empty($options[self::METADATA]) ? null : $options[self::METADATA]
             );
-        } catch (\Zend\Service\Amazon\S3\Exception  $e) {
+        } catch (\ZendService\Amazon\S3\Exception  $e) {
             throw new Exception\RuntimeException('Error on store: '.$e->getMessage(), $e->getCode(), $e);
         }
     }
@@ -147,7 +147,7 @@ class S3 implements AdapterInterface
     {
         try {
             $this->_s3->removeObject($this->_getFullPath($path, $options));
-        } catch (\Zend\Service\Amazon\S3\Exception  $e) {
+        } catch (\ZendService\Amazon\S3\Exception  $e) {
             throw new Exception\RuntimeException('Error on delete: '.$e->getMessage(), $e->getCode(), $e);
         }
     }
@@ -175,7 +175,7 @@ class S3 implements AdapterInterface
                 $fullDestPath,
                 empty($options[self::METADATA]) ? null : $options[self::METADATA]
             );
-        } catch (\Zend\Service\Amazon\S3\Exception  $e) {
+        } catch (\ZendService\Amazon\S3\Exception  $e) {
             throw new Exception\RunTimeException('Error on copy: '.$e->getMessage(), $e->getCode(), $e);
         }
     }
@@ -200,7 +200,7 @@ class S3 implements AdapterInterface
                 $fullDestPath,
                 empty($options[self::METADATA]) ? null : $options[self::METADATA]
             );
-        } catch (\Zend\Service\Amazon\S3\Exception  $e) {
+        } catch (\ZendService\Amazon\S3\Exception  $e) {
             throw new Exception\RuntimeException('Error on move: '.$e->getMessage(), $e->getCode(), $e);
         }
      }
@@ -232,9 +232,9 @@ class S3 implements AdapterInterface
     public function listItems($path, $options = null)
     {
         try {
-            // TODO Support 'prefix' parameter for \Zend\Service\Amazon\S3\S3::getObjectsByBucket()
+            // TODO Support 'prefix' parameter for \ZendService\Amazon\S3\S3::getObjectsByBucket()
             return $this->_s3->getObjectsByBucket($this->_defaultBucketName);
-        } catch (\Zend\Service\Amazon\S3\Exception  $e) {
+        } catch (\ZendService\Amazon\S3\Exception  $e) {
             throw new Exception\RuntimeException('Error on list: '.$e->getMessage(), $e->getCode(), $e);
         }
     }
@@ -250,7 +250,7 @@ class S3 implements AdapterInterface
     {
         try {
             return $this->_s3->getInfo($this->_getFullPath($path, $options));
-        } catch (\Zend\Service\Amazon\S3\Exception  $e) {
+        } catch (\ZendService\Amazon\S3\Exception  $e) {
             throw new Exception\RuntimeException('Error on fetch: '.$e->getMessage(), $e->getCode(), $e);
         }
     }
@@ -308,7 +308,7 @@ class S3 implements AdapterInterface
 
     /**
      * Get the concrete client.
-     * @return \Zend\Service\Amazon\S3\S3
+     * @return \ZendService\Amazon\S3\S3
      */
     public function getClient()
     {

@@ -8,9 +8,9 @@
  * @package   Zend_Cloud
  */
 
-namespace Zend\Cloud\DocumentService\Exception;
+namespace ZendCloud\DocumentService\Exception;
 
-use Zend\Cloud\Exception;
+use ZendCloud\Exception;
 
 /**
  * @category   Zend

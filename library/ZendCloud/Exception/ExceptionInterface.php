@@ -8,7 +8,7 @@
  * @package   Zend_Cloud
  */
 
-namespace Zend\Cloud\Exception;
+namespace ZendCloud\Exception;
 
 interface ExceptionInterface
 {}

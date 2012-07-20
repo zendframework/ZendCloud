@@ -8,11 +8,11 @@
  * @package   Zend_Cloud
  */
 
-namespace Zend\Cloud\DocumentService\Adapter;
+namespace ZendCloud\DocumentService\Adapter;
 
-use Zend\Cloud\DocumentService\Document;
-use Zend\Cloud\DocumentService\DocumentSet;
-use Zend\Cloud\DocumentService\Query;
+use ZendCloud\DocumentService\Document;
+use ZendCloud\DocumentService\DocumentSet;
+use ZendCloud\DocumentService\Query;
 
 /**
  * Abstract document service adapter
@@ -36,26 +36,26 @@ abstract class AbstractAdapter implements AdapterInterface
      * Class to utilize for new document objects
      * @var string
      */
-    protected $_documentClass = 'Zend\Cloud\DocumentService\Document';
+    protected $_documentClass = 'ZendCloud\DocumentService\Document';
 
     /**
      * Class to utilize for new document set objects
      * @var string
      */
-    protected $_documentSetClass = 'Zend\Cloud\DocumentService\DocumentSet';
+    protected $_documentSetClass = 'ZendCloud\DocumentService\DocumentSet';
 
     /**
      * Class to utilize for new query objects
      *
      * @var string
      */
-    protected $_queryClass = 'Zend\Cloud\DocumentService\Query';
+    protected $_queryClass = 'ZendCloud\DocumentService\Query';
 
     /**
      * Set the class for document objects
      *
      * @param  string $class
-     * @return \Zend\Cloud\DocumentService\Adapter\AbstractAdapter
+     * @return \ZendCloud\DocumentService\Adapter\AbstractAdapter
      */
     public function setDocumentClass($class)
     {
@@ -77,7 +77,7 @@ abstract class AbstractAdapter implements AdapterInterface
      * Set the class for document set objects
      *
      * @param  string $class
-     * @return \Zend\Cloud\DocumentService\Adapter\AbstractAdapter
+     * @return \ZendCloud\DocumentService\Adapter\AbstractAdapter
      */
     public function setDocumentSetClass($class)
     {
@@ -99,7 +99,7 @@ abstract class AbstractAdapter implements AdapterInterface
      * Set the query class for query objects
      *
      * @param  string $class
-     * @return \Zend\Cloud\DocumentService\Adapter\AbstractAdapter
+     * @return \ZendCloud\DocumentService\Adapter\AbstractAdapter
      */
     public function setQueryClass($class)
     {

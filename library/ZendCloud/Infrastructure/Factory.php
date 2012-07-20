@@ -8,10 +8,10 @@
  * @package   Zend_Cloud
  */
 
-namespace Zend\Cloud\Infrastructure;
+namespace ZendCloud\Infrastructure;
 
-use Zend\Cloud\AbstractFactory;
-use Zend\Cloud\Exception\InvalidArgumentException;
+use ZendCloud\AbstractFactory;
+use ZendCloud\Exception\InvalidArgumentException;
 
 /**
  * Factory for infrastructure adapters
@@ -26,7 +26,7 @@ class Factory extends AbstractFactory
     /**
      * @var string Interface which adapter must implement to be considered valid
      */
-    protected static $_adapterInterface = 'Zend\Cloud\Infrastructure\Adapter\AdapterInterface';
+    protected static $_adapterInterface = 'ZendCloud\Infrastructure\Adapter\AdapterInterface';
 
     /**
      * Constructor

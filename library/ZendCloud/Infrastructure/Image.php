@@ -8,7 +8,7 @@
  * @package   Zend_Cloud
  */
 
-namespace Zend\Cloud\Infrastructure;
+namespace ZendCloud\Infrastructure;
 
 /**
  * Instance of an infrastructure service

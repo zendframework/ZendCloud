@@ -8,9 +8,9 @@
  * @package   Zend_Cloud
  */
 
-namespace Zend\Cloud\DocumentService;
+namespace ZendCloud\DocumentService;
 
-use Zend\Cloud\AbstractFactory;
+use ZendCloud\AbstractFactory;
 
 /**
  * Class implementing working with Azure queries in a structured way
@@ -28,7 +28,7 @@ class Factory extends AbstractFactory
     /**
      * @var string Interface which adapter must implement to be considered valid
      */
-    protected static $_adapterInterface = 'Zend\Cloud\DocumentService\Adapter\AdapterInterface';
+    protected static $_adapterInterface = 'ZendCloud\DocumentService\Adapter\AdapterInterface';
 
     /**
      * Constructor

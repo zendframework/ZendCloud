@@ -8,13 +8,13 @@
  * @package   Zend_Cloud
  */
 
-namespace Zend\Cloud\StorageService\Adapter;
+namespace ZendCloud\StorageService\Adapter;
 
 use Traversable;
-use Zend\Cloud\StorageService\Adapter;
-use Zend\Cloud\StorageService\Exception;
-use Zend\Service\Rackspace\Exception as RackspaceException;
-use Zend\Service\Rackspace\Files as RackspaceFile;
+use ZendCloud\StorageService\Adapter;
+use ZendCloud\StorageService\Exception;
+use ZendService\Rackspace\Exception as RackspaceException;
+use ZendService\Rackspace\Files as RackspaceFile;
 use Zend\Stdlib\ArrayUtils;
 
 /**

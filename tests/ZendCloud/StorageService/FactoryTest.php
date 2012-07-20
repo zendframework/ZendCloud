@@ -8,19 +8,19 @@
  * @package   Zend_Cloud
  */
 
-namespace ZendTest\Cloud\StorageService;
+namespace ZendCloudTest\StorageService;
 
 use Zend\Config\Factory as ConfigFactory;
-use Zend\Cloud\StorageService\Factory;
-use Zend\Cloud\StorageService\Adapter\FileSystem;
-use Zend\Cloud\StorageService\Adapter\Nirvanix;
-use Zend\Cloud\StorageService\Adapter\S3;
+use ZendCloud\StorageService\Factory;
+use ZendCloud\StorageService\Adapter\FileSystem;
+use ZendCloud\StorageService\Adapter\Nirvanix;
+use ZendCloud\StorageService\Adapter\S3;
 use Zend\Http\Client\Adapter\Test as HttpClientTest;
 use Zend\Http\Response as HttpResponse;
 use PHPUnit_Framework_TestCase as PHPUnitTestCase;
 
 /**
- * Test class for \Zend\Cloud\StorageService\Factory
+ * Test class for \ZendCloud\StorageService\Factory
  *
  * @category   Zend
  * @package    Zend_Cloud_StorageService
@@ -56,17 +56,17 @@ class FactoryTest extends PHPUnitTestCase
 
         $httptest->setResponse($resp);
         $nirvanixAdapter = Factory::getAdapter($nirvanixConfig);
-        $this->assertEquals('Zend\Cloud\StorageService\Adapter\Nirvanix', get_class($nirvanixAdapter));
+        $this->assertEquals('ZendCloud\StorageService\Adapter\Nirvanix', get_class($nirvanixAdapter));
 
         // S3 adapter
         $s3Config = ConfigFactory::fromFile(realpath(dirname(__FILE__) . '/_files/config/s3.ini'), true);
         $s3Adapter = Factory::getAdapter($s3Config);
-        $this->assertEquals('Zend\Cloud\StorageService\Adapter\S3', get_class($s3Adapter));
+        $this->assertEquals('ZendCloud\StorageService\Adapter\S3', get_class($s3Adapter));
 
         // file system adapter
         $fileSystemConfig = ConfigFactory::fromFile(realpath(dirname(__FILE__) . '/_files/config/filesystem.ini'), true);
         $fileSystemAdapter = Factory::getAdapter($fileSystemConfig);
-        $this->assertEquals('Zend\Cloud\StorageService\Adapter\FileSystem', get_class($fileSystemAdapter));
+        $this->assertEquals('ZendCloud\StorageService\Adapter\FileSystem', get_class($fileSystemAdapter));
 
         // Azure adapter
         /*
@@ -96,7 +96,7 @@ class FactoryTest extends PHPUnitTestCase
 
         $httptest->setResponse($resp);
         $azureAdapter = Factory::getAdapter($azureConfig);
-        $this->assertEquals('Zend\Cloud\StorageService\Adapter\WindowsAzure', get_class($azureAdapter));
+        $this->assertEquals('ZendCloud\StorageService\Adapter\WindowsAzure', get_class($azureAdapter));
          *
          */
     }
@@ -105,10 +105,10 @@ class FactoryTest extends PHPUnitTestCase
     {
         // No need to overdo it; we'll test the array config with just one adapter.
         $fileSystemConfig = array(
-            Factory::STORAGE_ADAPTER_KEY => 'Zend\Cloud\StorageService\Adapter\FileSystem',
+            Factory::STORAGE_ADAPTER_KEY => 'ZendCloud\StorageService\Adapter\FileSystem',
             FileSystem::LOCAL_DIRECTORY  => dirname(__FILE__) ."/_files/data",
         );
         $fileSystemAdapter = Factory::getAdapter($fileSystemConfig);
-        $this->assertEquals('Zend\Cloud\StorageService\Adapter\FileSystem', get_class($fileSystemAdapter));
+        $this->assertEquals('ZendCloud\StorageService\Adapter\FileSystem', get_class($fileSystemAdapter));
     }
 }

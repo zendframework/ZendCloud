@@ -8,12 +8,12 @@
  * @package   Zend_Cloud
  */
 
-namespace ZendTest\Cloud\QueueService\Adapter;
+namespace ZendCloudTest\QueueService\Adapter;
 
-use ZendTest\Cloud\QueueService\TestCase;
-use Zend\Cloud\QueueService\Adapter\ZendQueue;
+use ZendCloudTest\QueueService\TestCase;
+use ZendCloud\QueueService\Adapter\ZendQueue;
 use Zend\Config\Config;
-use Zend\Cloud\QueueService\Factory;
+use ZendCloud\QueueService\Factory;
 
 /**
  * @category   Zend
@@ -40,7 +40,7 @@ class ZendQueueTest extends TestCase
     protected function _getConfig()
     {
         $config = new Config(array(
-            Factory::QUEUE_ADAPTER_KEY => 'Zend\Cloud\QueueService\Adapter\ZendQueue',
+            Factory::QUEUE_ADAPTER_KEY => 'ZendCloud\QueueService\Adapter\ZendQueue',
             ZendQueue::ADAPTER         => 'ArrayAdapter'
         ));
 

@@ -8,9 +8,9 @@
  * @package   Zend_Cloud
  */
 
-namespace Zend\Cloud\QueueService\Exception;
+namespace ZendCloud\QueueService\Exception;
 
-use Zend\Cloud\Exception;
+use ZendCloud\Exception;
 
 /**
  * @package    Zend_Cloud

@@ -8,7 +8,7 @@
  * @package   Zend_Cloud
  */
 
-namespace Zend\Cloud;
+namespace ZendCloud;
 
 use Traversable;
 use Zend\Stdlib\ArrayUtils;

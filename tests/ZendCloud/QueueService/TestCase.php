@@ -8,11 +8,11 @@
  * @package   Zend_Cloud
  */
 
-namespace ZendTest\Cloud\QueueService;
+namespace ZendCloudTest\QueueService;
 
-use Zend\Cloud\QueueService\Adapter;
+use ZendCloud\QueueService\Adapter;
 use Zend\Config\Config;
-use Zend\Cloud\QueueService\Factory;
+use ZendCloud\QueueService\Factory;
 use PHPUnit_Framework_TestCase as PHPUnitTestCase;
 
 /**
@@ -28,7 +28,7 @@ abstract class TestCase extends PHPUnitTestCase
     /**
      * Reference to queue adapter to test
      *
-     * @var \Zend\Cloud\QueueService
+     * @var \ZendCloud\QueueService
      */
     protected $_commonQueue;
     protected $_dummyNamePrefix = '/TestItem';
@@ -91,7 +91,7 @@ abstract class TestCase extends PHPUnitTestCase
             try {
                 $messages = $this->_commonQueue->receiveMessages($queueURL);
                 $this->fail('An exception should have been thrown if the queue has been deleted; received ' . var_export($messages, 1));
-            } catch (\Zend\Cloud\QueueService\Exception\ExceptionInterface $e) {
+            } catch (\ZendCloud\QueueService\Exception\ExceptionInterface $e) {
                 $this->assertTrue(true);
                 $this->_commonQueue->deleteQueue($queueURL);
                 return;
@@ -178,7 +178,7 @@ abstract class TestCase extends PHPUnitTestCase
             $this->_commonQueue->sendMessage($queueURL, $message);
             $this->_wait();
             $receivedMessages = $this->_commonQueue->receiveMessages($queueURL);
-            $this->assertInstanceOf('Zend\Cloud\QueueService\MessageSet', $receivedMessages);
+            $this->assertInstanceOf('ZendCloud\QueueService\MessageSet', $receivedMessages);
             $this->assertEquals(1, count($receivedMessages));
             foreach ($receivedMessages as $m) {
                 $this->assertEquals($message, $m->getBody());
@@ -207,10 +207,10 @@ abstract class TestCase extends PHPUnitTestCase
 
             // receive one message
             $receivedMessages1 = $this->_commonQueue->receiveMessages($queueURL);
-            $this->assertInstanceOf('Zend\Cloud\QueueService\MessageSet', $receivedMessages1);
+            $this->assertInstanceOf('ZendCloud\QueueService\MessageSet', $receivedMessages1);
             $this->assertEquals(1, count($receivedMessages1));
             foreach ($receivedMessages1 as $receivedMessage1) {
-                $this->assertInstanceOf('Zend\Cloud\QueueService\Message', $receivedMessage1);
+                $this->assertInstanceOf('ZendCloud\QueueService\Message', $receivedMessage1);
             }
 
             // cleanup the queue
@@ -230,7 +230,7 @@ abstract class TestCase extends PHPUnitTestCase
 
             // receive both messages
             $receivedMessages2 = $this->_commonQueue->receiveMessages($queueURL, 2);
-            $this->assertInstanceOf('Zend\Cloud\QueueService\MessageSet', $receivedMessages2);
+            $this->assertInstanceOf('ZendCloud\QueueService\MessageSet', $receivedMessages2);
             $this->assertEquals(2, count($receivedMessages2));
 
             $tests = array();
@@ -264,7 +264,7 @@ abstract class TestCase extends PHPUnitTestCase
             $receivedMessages1 = $this->_commonQueue->receiveMessages($queueURL);
 
             // should receive one $message1
-            $this->assertInstanceOf('Zend\Cloud\QueueService\MessageSet', $receivedMessages1);
+            $this->assertInstanceOf('ZendCloud\QueueService\MessageSet', $receivedMessages1);
             $this->assertEquals(1, count($receivedMessages1));
             foreach ($receivedMessages1 as $receivedMessage1) {
                 $this->assertEquals($message1, $receivedMessage1->getBody());
@@ -275,7 +275,7 @@ abstract class TestCase extends PHPUnitTestCase
 
             // now there should be no messages left
             $receivedMessages2 = $this->_commonQueue->receiveMessages($queueURL);
-            $this->assertInstanceOf('Zend\Cloud\QueueService\MessageSet', $receivedMessages2);
+            $this->assertInstanceOf('ZendCloud\QueueService\MessageSet', $receivedMessages2);
             $this->assertEquals(0, count($receivedMessages2));
 
             $this->_commonQueue->deleteQueue($queueURL);

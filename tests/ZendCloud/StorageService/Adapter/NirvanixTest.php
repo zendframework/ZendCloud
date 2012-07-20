@@ -8,10 +8,10 @@
  * @package   Zend_Cloud
  */
 
-namespace ZendTest\Cloud\StorageService\Adapter;
+namespace ZendCloudTest\StorageService\Adapter;
 
-use ZendTest\Cloud\StorageService\TestCase;
-use Zend\Cloud\StorageService\Adapter\Nirvanix;
+use ZendCloudTest\StorageService\TestCase;
+use ZendCloud\StorageService\Adapter\Nirvanix;
 use Zend\Config\Config;
 
 /**
@@ -21,7 +21,7 @@ use Zend\Config\Config;
  */
 class NirvanixTest extends TestCase
 {
-    protected $_clientType = 'Zend\Service\Nirvanix';
+    protected $_clientType = 'ZendService\Nirvanix';
 
     public function testFetchItemStream()
     {
@@ -59,11 +59,11 @@ class NirvanixTest extends TestCase
         }
 
         $config = new \Zend\Config\Config(array(
-            \Zend\Cloud\StorageService\Factory::STORAGE_ADAPTER_KEY       => 'Zend\Cloud\StorageService\Adapter\Nirvanix',
-            \Zend\Cloud\StorageService\Adapter\Nirvanix::USERNAME         => constant('TESTS_ZEND_SERVICE_NIRVANIX_ONLINE_USERNAME'),
-            \Zend\Cloud\StorageService\Adapter\Nirvanix::APP_KEY          => constant('TESTS_ZEND_SERVICE_NIRVANIX_ONLINE_ACCESSKEY'),
-            \Zend\Cloud\StorageService\Adapter\Nirvanix::PASSWORD         => constant('TESTS_ZEND_SERVICE_NIRVANIX_ONLINE_PASSWORD'),
-            \Zend\Cloud\StorageService\Adapter\Nirvanix::REMOTE_DIRECTORY => constant('TESTS_ZEND_CLOUD_STORAGE_NIRVANIX_DIRECTORY'),
+            \ZendCloud\StorageService\Factory::STORAGE_ADAPTER_KEY       => 'ZendCloud\StorageService\Adapter\Nirvanix',
+            \ZendCloud\StorageService\Adapter\Nirvanix::USERNAME         => constant('TESTS_ZEND_SERVICE_NIRVANIX_ONLINE_USERNAME'),
+            \ZendCloud\StorageService\Adapter\Nirvanix::APP_KEY          => constant('TESTS_ZEND_SERVICE_NIRVANIX_ONLINE_ACCESSKEY'),
+            \ZendCloud\StorageService\Adapter\Nirvanix::PASSWORD         => constant('TESTS_ZEND_SERVICE_NIRVANIX_ONLINE_PASSWORD'),
+            \ZendCloud\StorageService\Adapter\Nirvanix::REMOTE_DIRECTORY => constant('TESTS_ZEND_CLOUD_STORAGE_NIRVANIX_DIRECTORY'),
         ));
 
         return $config;

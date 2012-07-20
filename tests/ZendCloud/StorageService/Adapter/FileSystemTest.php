@@ -8,10 +8,10 @@
  * @package   Zend_Cloud
  */
 
-namespace ZendTest\Cloud\StorageService\Adapter;
+namespace ZendCloudTest\StorageService\Adapter;
 
-use ZendTest\Cloud\StorageService\TestCase;
-use Zend\Cloud\StorageService\Adapter\FileSystem;
+use ZendCloudTest\StorageService\TestCase;
+use ZendCloud\StorageService\Adapter\FileSystem;
 use Zend\Config\Config;
 
 /**
@@ -105,8 +105,8 @@ class FileSystemTest extends TestCase
     protected function _getConfig()
     {
         $config = new Config(array(
-            \Zend\Cloud\StorageService\Factory::STORAGE_ADAPTER_KEY        => 'Zend\Cloud\StorageService\Adapter\Filesystem',
-            \Zend\Cloud\StorageService\Adapter\FileSystem::LOCAL_DIRECTORY => dirname(__FILE__) . '/../_files/data/FileSystemTest',
+            \ZendCloud\StorageService\Factory::STORAGE_ADAPTER_KEY        => 'ZendCloud\StorageService\Adapter\Filesystem',
+            \ZendCloud\StorageService\Adapter\FileSystem::LOCAL_DIRECTORY => dirname(__FILE__) . '/../_files/data/FileSystemTest',
         ));
 
         return $config;

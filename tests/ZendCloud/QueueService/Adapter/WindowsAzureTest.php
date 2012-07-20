@@ -8,12 +8,12 @@
  * @package   Zend_Cloud
  */
 
-namespace ZendTest\Cloud\QueueService\Adapter;
+namespace ZendCloudTest\QueueService\Adapter;
 
-use ZendTest\Cloud\QueueService\TestCase;
-use Zend\Cloud\QueueService\Adapter\WindowsAzure;
+use ZendCloudTest\QueueService\TestCase;
+use ZendCloud\QueueService\Adapter\WindowsAzure;
 use Zend\Config\Config;
-use Zend\Cloud\QueueService\Factory;
+use ZendCloud\QueueService\Factory;
 
 /**
  * @category   Zend
@@ -30,7 +30,7 @@ class WindowsAzureTest extends TestCase
      */
     protected $_waitPeriod = 10;
 
-    protected $_clientType = 'Zend\Service\WindowsAzure\Storage\Queue';
+    protected $_clientType = 'ZendService\WindowsAzure\Storage\Queue';
 
     /**
      * Sets up this test case

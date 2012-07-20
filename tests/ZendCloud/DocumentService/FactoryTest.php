@@ -8,16 +8,16 @@
  * @package   Zend_Cloud
  */
 
-namespace ZendTest\Cloud\DocumentService;
+namespace ZendCloudTest\DocumentService;
 
-use Zend\Cloud\DocumentService\Factory as DocumentFactory;
+use ZendCloud\DocumentService\Factory as DocumentFactory;
 use Zend\Config\Config;
-use ZendTest\Cloud\DocumentService\Adapter\SimpleDbTest;
-use ZendTest\Cloud\DocumentService\Adapter\WindowsAzureTest;
+use ZendCloudTest\DocumentService\Adapter\SimpleDbTest;
+use ZendCloudTest\DocumentService\Adapter\WindowsAzureTest;
 use PHPUnit_Framework_TestCase as PHPUnitTestCase;
 
 /**
- * Test class for Zend\Cloud\DocumentService\Factory
+ * Test class for ZendCloud\DocumentService\Factory
  *
  * @category   Zend
  * @package    Zend_Cloud_DocumentService
@@ -28,7 +28,7 @@ class FactoryTest extends PHPUnitTestCase
 {
     public function testGetDocumentAdapterKey()
     {
-        $this->assertTrue(is_string(\Zend\Cloud\DocumentService\Factory::DOCUMENT_ADAPTER_KEY));
+        $this->assertTrue(is_string(\ZendCloud\DocumentService\Factory::DOCUMENT_ADAPTER_KEY));
     }
 
     public function testGetAdapterWithConfig()
@@ -38,7 +38,7 @@ class FactoryTest extends PHPUnitTestCase
                                     new Config(SimpleDbTest::getConfigArray(), true)
                                 );
 
-        $this->assertEquals('Zend\Cloud\DocumentService\Adapter\SimpleDb', get_class($simpleDbAdapter));
+        $this->assertEquals('ZendCloud\DocumentService\Adapter\SimpleDb', get_class($simpleDbAdapter));
 
         // Azure adapter
         /*
@@ -47,7 +47,7 @@ class FactoryTest extends PHPUnitTestCase
                                     new Config(WindowsAzureTest::getConfigArray(), true)
                                 );
 
-        $this->assertEquals('Zend\Cloud\DocumentService\Adapter\WindowsAzure', get_class($azureAdapter));
+        $this->assertEquals('ZendCloud\DocumentService\Adapter\WindowsAzure', get_class($azureAdapter));
          */
     }
 }

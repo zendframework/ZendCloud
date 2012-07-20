@@ -8,14 +8,14 @@
  * @package   Zend_Cloud
  */
 
-namespace ZendTest\Cloud\QueueService;
+namespace ZendCloudTest\QueueService;
 
 use Zend\Config\Factory as ConfigFactory;
-use Zend\Cloud\QueueService\Factory;
+use ZendCloud\QueueService\Factory;
 use PHPUnit_Framework_TestCase as PHPUnitTestCase;
 
 /**
- * Test class for \Zend\Cloud\QueueService\Factory
+ * Test class for \ZendCloud\QueueService\Factory
  *
  * @category   Zend
  * @package    Zend_Cloud_QueueService
@@ -34,27 +34,27 @@ class FactoryTest extends PHPUnitTestCase
         // SQS adapter
         $sqsConfig = ConfigFactory::fromFile(realpath(dirname(__FILE__) . '/_files/config/sqs.ini'), true);
         $sqsAdapter = Factory::getAdapter($sqsConfig);
-        $this->assertEquals('Zend\Cloud\QueueService\Adapter\Sqs', get_class($sqsAdapter));
+        $this->assertEquals('ZendCloud\QueueService\Adapter\Sqs', get_class($sqsAdapter));
 
         // Zend queue adapter
         $zqConfig = ConfigFactory::fromFile(realpath(dirname(__FILE__) . '/_files/config/zendqueue.ini'), true);
         $zq = Factory::getAdapter($zqConfig);
-        $this->assertEquals('Zend\Cloud\QueueService\Adapter\ZendQueue', get_class($zq));
+        $this->assertEquals('ZendCloud\QueueService\Adapter\ZendQueue', get_class($zq));
 
         // Azure adapter
         //$azureConfig = ConfigFactory::fromFile(realpath(dirname(__FILE__) . '/_files/config/windowsazure.ini'), true);
         //$azureAdapter = Factory::getAdapter($azureConfig);
-        //$this->assertEquals('Zend\Cloud\QueueService\Adapter\WindowsAzure', get_class($azureAdapter));
+        //$this->assertEquals('ZendCloud\QueueService\Adapter\WindowsAzure', get_class($azureAdapter));
     }
 
     public function testGetAdapterWithArray()
     {
         // No need to overdo it; we'll test the array config with just one adapter.
-        $zqConfig = array(Factory::QUEUE_ADAPTER_KEY => 'Zend\Cloud\QueueService\Adapter\ZendQueue',
-                          \Zend\Cloud\QueueService\Adapter\ZendQueue::ADAPTER => "ArrayAdapter");
+        $zqConfig = array(Factory::QUEUE_ADAPTER_KEY => 'ZendCloud\QueueService\Adapter\ZendQueue',
+                          \ZendCloud\QueueService\Adapter\ZendQueue::ADAPTER => "ArrayAdapter");
 
         $zq = Factory::getAdapter($zqConfig);
 
-        $this->assertEquals('Zend\Cloud\QueueService\Adapter\ZendQueue', get_class($zq));
+        $this->assertEquals('ZendCloud\QueueService\Adapter\ZendQueue', get_class($zq));
     }
 }

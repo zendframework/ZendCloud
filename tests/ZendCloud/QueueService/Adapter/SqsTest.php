@@ -8,10 +8,10 @@
  * @package   Zend_Cloud
  */
 
-namespace ZendTest\Cloud\QueueService\Adapter;
+namespace ZendCloudTest\QueueService\Adapter;
 
-use ZendTest\Cloud\QueueService\TestCase;
-use Zend\Cloud\QueueService\Adapter\Sqs;
+use ZendCloudTest\QueueService\TestCase;
+use ZendCloud\QueueService\Adapter\Sqs;
 use Zend\Config\Config;
 
 /**
@@ -29,7 +29,7 @@ class SqsTest extends TestCase
      */
     protected $_waitPeriod = 10;
 
-    protected $_clientType = 'Zend\Service\Amazon\Sqs';
+    protected $_clientType = 'ZendService\Amazon\Sqs';
 
     /**
      * Sets up this test case
@@ -107,7 +107,7 @@ class SqsTest extends TestCase
         }
 
         $config = new Config(array(
-            Factory::QUEUE_ADAPTER_KEY => 'Zend\Cloud\QueueService\Adapter\Sqs',
+            Factory::QUEUE_ADAPTER_KEY => 'ZendCloud\QueueService\Adapter\Sqs',
             Sqs::AWS_ACCESS_KEY => constant('TESTS_ZEND_SERVICE_AMAZON_ONLINE_ACCESSKEYID'),
             Sqs::AWS_SECRET_KEY => constant('TESTS_ZEND_SERVICE_AMAZON_ONLINE_SECRETKEY'),
             ));

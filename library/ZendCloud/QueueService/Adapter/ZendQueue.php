@@ -8,10 +8,10 @@
  * @package   Zend_Cloud
  */
 
-namespace Zend\Cloud\QueueService\Adapter;
+namespace ZendCloud\QueueService\Adapter;
 
 use Traversable;
-use Zend\Cloud\QueueService\Exception;
+use ZendCloud\QueueService\Exception;
 use Zend\Queue\Queue;
 use Zend\Stdlib\ArrayUtils;
 
@@ -64,7 +64,7 @@ class ZendQueue extends AbstractAdapter
             $this->setMessageSetClass($options[self::MESSAGESET_CLASS]);
         }
 
-        // Build Zend\Service\WindowsAzure\Storage\Blob instance
+        // Build ZendService\WindowsAzure\Storage\Blob instance
         if (!isset($options[self::ADAPTER])) {
             throw new Exception\InvalidArgumentException('No \Zend\Queue adapter provided');
         } else {
@@ -222,11 +222,11 @@ class ZendQueue extends AbstractAdapter
     }
 
     /**
-     * Create Zend\Cloud\QueueService\Message array for
+     * Create ZendCloud\QueueService\Message array for
      * Azure messages.
      *
      * @param array $messages
-     * @return \Zend\Cloud\QueueService\Message[]
+     * @return \ZendCloud\QueueService\Message[]
      */
     protected function _makeMessages($messages)
     {
@@ -243,7 +243,7 @@ class ZendQueue extends AbstractAdapter
      * Delete the specified message from the specified queue.
      *
      * @param  string $queueId
-     * @param  \Zend\Cloud\QueueService\Message $message Message ID or message
+     * @param  \ZendCloud\QueueService\Message $message Message ID or message
      * @param  array  $options
      * @return void
      */
@@ -253,7 +253,7 @@ class ZendQueue extends AbstractAdapter
             throw new Exception\InvalidArgumentException("No such queue: $queueId");
         }
         try {
-            if ($message instanceof \Zend\Cloud\QueueService\Message) {
+            if ($message instanceof \ZendCloud\QueueService\Message) {
                 $message = $message->getMessage();
             } else {
                 throw new Exception\InvalidArgumentException('Cannot delete the message: \Zend\Queue\Message object required');
@@ -271,7 +271,7 @@ class ZendQueue extends AbstractAdapter
      * @param  string $queueId
      * @param  int $num How many messages
      * @param  array  $options
-     * @return \Zend\Cloud\QueueService\Message[]
+     * @return \ZendCloud\QueueService\Message[]
      */
     public function peekMessages($queueId, $num = 1, $options = null)
     {

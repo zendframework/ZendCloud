@@ -8,14 +8,14 @@
  * @package   Zend_Cloud
  */
 
-namespace Zend\Cloud\DocumentService\Adapter;
+namespace ZendCloud\DocumentService\Adapter;
 
 use Traversable;
-use Zend\Cloud\DocumentService\Adapter\SimpleDb\Query;
-use Zend\Cloud\DocumentService\Document;
-use Zend\Service\Amazon\Exception as AmazonException;
-use Zend\Service\Amazon\SimpleDb\Attribute;
-use Zend\Service\Amazon\SimpleDb\SimpleDb as SimpleDbService;
+use ZendCloud\DocumentService\Adapter\SimpleDb\Query;
+use ZendCloud\DocumentService\Document;
+use ZendService\Amazon\Exception as AmazonException;
+use ZendService\Amazon\SimpleDb\Attribute;
+use ZendService\Amazon\SimpleDb\SimpleDb as SimpleDbService;
 use Zend\Stdlib\ArrayUtils;
 
 /**
@@ -38,12 +38,12 @@ class SimpleDb extends AbstractAdapter
     const MERGE_OPTION     = "merge";
     const RETURN_DOCUMENTS = "return_documents";
 
-    const DEFAULT_QUERY_CLASS = 'Zend\Cloud\DocumentService\Adapter\SimpleDb\Query';
+    const DEFAULT_QUERY_CLASS = 'ZendCloud\DocumentService\Adapter\SimpleDb\Query';
 
 
     /**
      * SQS service instance.
-     * @var \Zend\Service\Amazon\SimpleDb\SimpleDb
+     * @var \ZendService\Amazon\SimpleDb\SimpleDb
      */
     protected $_simpleDb;
 
@@ -51,7 +51,7 @@ class SimpleDb extends AbstractAdapter
      * Class to utilize for new query objects
      * @var string
      */
-    protected $_queryClass = 'Zend\Cloud\DocumentService\Adapter\SimpleDb\Query';
+    protected $_queryClass = 'ZendCloud\DocumentService\Adapter\SimpleDb\Query';
 
     /**
      * Constructor
@@ -100,7 +100,7 @@ class SimpleDb extends AbstractAdapter
     {
         try {
             $this->_simpleDb->createDomain($name);
-        } catch(\Zend\Service\Amazon\Exception $e) {
+        } catch(\ZendService\Amazon\Exception $e) {
             throw new Exception\RunTimeException('Error on domain creation: '.$e->getMessage(), $e->getCode(), $e);
         }
     }
@@ -116,7 +116,7 @@ class SimpleDb extends AbstractAdapter
     {
         try {
             $this->_simpleDb->deleteDomain($name);
-        } catch(\Zend\Service\Amazon\Exception $e) {
+        } catch(\ZendService\Amazon\Exception $e) {
             throw new Exception\RunTimeException('Error on collection deletion: '.$e->getMessage(), $e->getCode(), $e);
         }
     }
@@ -132,7 +132,7 @@ class SimpleDb extends AbstractAdapter
         try {
             // TODO package this in Pages
             $domains = $this->_simpleDb->listDomains()->getData();
-        } catch(\Zend\Service\Amazon\Exception $e) {
+        } catch(\ZendService\Amazon\Exception $e) {
             throw new Exception\RuntimeException('Error on collection deletion: '.$e->getMessage(), $e->getCode(), $e);
         }
 
@@ -146,7 +146,7 @@ class SimpleDb extends AbstractAdapter
      *
      * @param  string $collectionName Name of collection for which to list documents
      * @param  array|null $options
-     * @return \Zend\Cloud\DocumentService\DocumentSet
+     * @return \ZendCloud\DocumentService\DocumentSet
      */
     public function listDocuments($collectionName, array $options = null)
     {
@@ -159,7 +159,7 @@ class SimpleDb extends AbstractAdapter
      * Insert document
      *
      * @param  string $collectionName Collection into which to insert document
-     * @param  array|\Zend\Cloud\DocumentService\Document $document
+     * @param  array|\ZendCloud\DocumentService\Document $document
      * @param  array $options
      * @return void
      */
@@ -188,7 +188,7 @@ class SimpleDb extends AbstractAdapter
      * Replace an existing document with a new version
      *
      * @param  string $collectionName
-     * @param  array|\Zend\Cloud\DocumentService\Document $document
+     * @param  array|\ZendCloud\DocumentService\Document $document
      * @param  array $options
      * @return void
      */
@@ -198,7 +198,7 @@ class SimpleDb extends AbstractAdapter
             $document =  $this->_getDocumentFromArray($document);
         }
 
-        if (!$document instanceof \Zend\Cloud\DocumentService\Document) {
+        if (!$document instanceof \ZendCloud\DocumentService\Document) {
             throw new Exception\InvalidArgumentException('Invalid document supplied');
         }
 
@@ -221,19 +221,19 @@ class SimpleDb extends AbstractAdapter
      * By default, attributes are replaced.
      *
      * @param  string $collectionName
-     * @param  mixed|\Zend\Cloud\DocumentService\Document $documentId Document ID, adapter-dependent
-     * @param  array|\Zend\Cloud\DocumentService\Document $fieldset Set of fields to update
+     * @param  mixed|\ZendCloud\DocumentService\Document $documentId Document ID, adapter-dependent
+     * @param  array|\ZendCloud\DocumentService\Document $fieldset Set of fields to update
      * @param  array $options
      * @return boolean
      */
     public function updateDocument($collectionName, $documentId, $fieldset = null, $options = null)
     {
-        if (null === $fieldset && $documentId instanceof \Zend\Cloud\DocumentService\Document) {
+        if (null === $fieldset && $documentId instanceof \ZendCloud\DocumentService\Document) {
             $fieldset   = $documentId->getFields();
             if (empty($documentId)) {
                 $documentId = $documentId->getId();
             }
-        } elseif ($fieldset instanceof \Zend\Cloud\DocumentService\Document) {
+        } elseif ($fieldset instanceof \ZendCloud\DocumentService\Document) {
             if (empty($documentId)) {
                 $documentId = $fieldset->getId();
             }
@@ -262,7 +262,7 @@ class SimpleDb extends AbstractAdapter
                 $this->_makeAttributes($documentId, $fieldset),
                 $replace
             );
-        } catch(\Zend\Service\Amazon\Exception $e) {
+        } catch(\ZendService\Amazon\Exception $e) {
             throw new Exception\RunTimeException('Error on document update: '.$e->getMessage(), $e->getCode(), $e);
         }
         return true;
@@ -278,12 +278,12 @@ class SimpleDb extends AbstractAdapter
      */
     public function deleteDocument($collectionName, $document, $options = null)
     {
-        if ($document instanceof \Zend\Cloud\DocumentService\Document) {
+        if ($document instanceof \ZendCloud\DocumentService\Document) {
             $document = $document->getId();
         }
         try {
             $this->_simpleDb->deleteAttributes($collectionName, $document);
-        } catch(\Zend\Service\Amazon\Exception $e) {
+        } catch(\ZendService\Amazon\Exception $e) {
             throw new Exception\RuntimeException('Error on document deletion: '.$e->getMessage(), $e->getCode(), $e);
         }
         return true;
@@ -295,7 +295,7 @@ class SimpleDb extends AbstractAdapter
      * @param  string $collectionName Collection name
      * @param  mixed $documentId Document ID, adapter-dependent
      * @param  array $options
-     * @return \Zend\Cloud\DocumentService\Document
+     * @return \ZendCloud\DocumentService\Document
      */
     public function fetchDocument($collectionName, $documentId, $options = null)
     {
@@ -305,7 +305,7 @@ class SimpleDb extends AbstractAdapter
                 return false;
             }
             return $this->_resolveAttributes($attributes, true);
-        } catch(\Zend\Service\Amazon\Exception $e) {
+        } catch(\ZendService\Amazon\Exception $e) {
             throw new Exception\RunTimeException('Error on fetching document: '.$e->getMessage(), $e->getCode(), $e);
         }
     }
@@ -317,7 +317,7 @@ class SimpleDb extends AbstractAdapter
      * @param  string $collectionName Collection name
      * @param  string $query
      * @param  array $options
-     * @return array|\Zend\Cloud\DocumentService\DocumentSet
+     * @return array|\ZendCloud\DocumentService\DocumentSet
      */
     public function query($collectionName, $query, $options = null)
     {
@@ -326,11 +326,11 @@ class SimpleDb extends AbstractAdapter
                     : true;
 
         try {
-            if ($query instanceof \Zend\Cloud\DocumentService\Adapter\SimpleDb\Query) {
+            if ($query instanceof \ZendCloud\DocumentService\Adapter\SimpleDb\Query) {
                 $query = $query->assemble($collectionName);
             }
             $result = $this->_simpleDb->select($query);
-        } catch(\Zend\Service\Amazon\Exception $e) {
+        } catch(\ZendService\Amazon\Exception $e) {
             throw new Exception\RuntimeException('Error on document query: '.$e->getMessage(), $e->getCode(), $e);
         }
 
@@ -341,7 +341,7 @@ class SimpleDb extends AbstractAdapter
      * Create query statement
      *
      * @param  string $fields
-     * @return \Zend\Cloud\DocumentService\Adapter\SimpleDb\Query
+     * @return \ZendCloud\DocumentService\Adapter\SimpleDb\Query
      */
     public function select($fields = null)
     {
@@ -360,7 +360,7 @@ class SimpleDb extends AbstractAdapter
     /**
      * Get the concrete service client
      *
-     * @return \Zend\Service\Amazon\SimpleDb\SimpleDb
+     * @return \ZendService\Amazon\SimpleDb\SimpleDb
      */
     public function getClient()
     {
@@ -415,7 +415,7 @@ class SimpleDb extends AbstractAdapter
      * Create suitable document from array of fields
      *
      * @param array $document
-     * @return \Zend\Cloud\DocumentService\Document
+     * @return \ZendCloud\DocumentService\Document
      */
     protected function _getDocumentFromArray($document)
     {
@@ -438,11 +438,11 @@ class SimpleDb extends AbstractAdapter
     /**
      * Create a DocumentSet from a SimpleDb resultSet
      *
-     * @param  \Zend\Service\Amazon\SimpleDb\Page $resultSet
+     * @param  \ZendService\Amazon\SimpleDb\Page $resultSet
      * @param  bool $returnDocs
-     * @return \Zend\Cloud\DocumentService\DocumentSet
+     * @return \ZendCloud\DocumentService\DocumentSet
      */
-    protected function _getDocumentSetFromResultSet(\Zend\Service\Amazon\SimpleDb\Page $resultSet, $returnDocs = true)
+    protected function _getDocumentSetFromResultSet(\ZendService\Amazon\SimpleDb\Page $resultSet, $returnDocs = true)
     {
         $docs = array();
         foreach ($resultSet->getData() as $item) {

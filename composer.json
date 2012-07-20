@@ -1,0 +1,33 @@
+{
+    "name": "zendframework/zendcloud",
+    "description": "Zend Framework Cloud Abstraction Layer",
+    "type": "library",
+    "license": "BSD-3-Clause",
+    "keywords": [
+        "zf2",
+        "cloud"
+    ],
+    "homepage": "http://packages.zendframework.com/",
+    "autoload": {
+        "psr-0": {
+            "ZendCloud": "library/"
+        }
+    },
+    "repositories": [
+        {
+            "type": "composer",
+            "url": "http://packages.zendframework.com/"
+        }
+    ],
+    "require": {
+        "php": ">=5.3.3",
+        "zendframework/zend-stdlib": "self.version"
+    },
+    "suggest": {
+        "zendframework/zendservice-amazon": "ZendService\\Amazon component",
+        "zendframework/zendservice-rackspace": "ZendService\\Rackspace component",
+        "zendframework/zendservice-gogrid": "ZendService\\GoGrid component",
+        "zendframework/zendservice-windowsazure": "ZendService\\WindowsAzure component",
+        "zendframework/zendservice-nivanix": "ZendService\\Nirvanix component"
+    }
+}

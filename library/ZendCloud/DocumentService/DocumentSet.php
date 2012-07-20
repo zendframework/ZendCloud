@@ -8,7 +8,7 @@
  * @package   Zend_Cloud
  */
 
-namespace Zend\Cloud\DocumentService;
+namespace ZendCloud\DocumentService;
 
 use Countable;
 use IteratorAggregate;

@@ -8,7 +8,7 @@
  * @package   Zend_Cloud
  */
 
-namespace Zend\Cloud\QueueService;
+namespace ZendCloud\QueueService;
 
 use Countable;
 use IteratorAggregate;

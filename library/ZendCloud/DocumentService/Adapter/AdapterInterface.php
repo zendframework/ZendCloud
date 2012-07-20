@@ -8,7 +8,7 @@
  * @package   Zend_Cloud
  */
 
-namespace Zend\Cloud\DocumentService\Adapter;
+namespace ZendCloud\DocumentService\Adapter;
 
 /**
  * Common interface for document storage services in the cloud. This interface
@@ -61,7 +61,7 @@ interface AdapterInterface
      *
      * @param  string $collectionName
      * @param  null|array $options
-     * @return \Zend\Cloud\DocumentService\DocumentSet
+     * @return \ZendCloud\DocumentService\DocumentSet
      */
     public function listDocuments($collectionName, array $options = null);
 
@@ -69,7 +69,7 @@ interface AdapterInterface
      * Insert document
      *
      * @param  string $collectionName Collection name
-     * @param  \Zend\Cloud\DocumentService\Document $document Document to insert
+     * @param  \ZendCloud\DocumentService\Document $document Document to insert
      * @param  array $options
      * @return boolean
      */
@@ -80,7 +80,7 @@ interface AdapterInterface
      * The new document replaces the existing document with the same ID.
      *
      * @param string $collectionName Collection name
-     * @param \Zend\Cloud\DocumentService\Document $document
+     * @param \ZendCloud\DocumentService\Document $document
      * @param array $options
      */
     public function replaceDocument($collectionName, $document, $options = null);
@@ -91,8 +91,8 @@ interface AdapterInterface
      * Fields not specified in the set will be left as-is.
      *
      * @param  string $collectionName
-     * @param  mixed|\Zend\Cloud\DocumentService\Document $documentID Document ID, adapter-dependent, or document containing updates
-     * @param  array|\Zend\Cloud\DocumentService\Document $fieldset Set of fields to update
+     * @param  mixed|\ZendCloud\DocumentService\Document $documentID Document ID, adapter-dependent, or document containing updates
+     * @param  array|\ZendCloud\DocumentService\Document $fieldset Set of fields to update
      * @param  array $options
      * @return boolean
      */
@@ -116,7 +116,7 @@ interface AdapterInterface
      * @param string $collectionName Collection name
      * @param mixed $documentID Document ID, adapter-dependent
      * @param array $options
-     * @return \Zend\Cloud\DocumentService\Document
+     * @return \ZendCloud\DocumentService\Document
      */
     public function fetchDocument($collectionName, $documentID, $options = null);
 
@@ -135,7 +135,7 @@ interface AdapterInterface
      * Create query statement
      *
      * @param string $fields
-     * @return \Zend\Cloud\DocumentService\Query
+     * @return \ZendCloud\DocumentService\Query
      */
     public function select($fields = null);
 

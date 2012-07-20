@@ -8,9 +8,9 @@
  * @package   Zend_Cloud
  */
 
-namespace Zend\Cloud\QueueService;
+namespace ZendCloud\QueueService;
 
-use Zend\Cloud\AbstractFactory;
+use ZendCloud\AbstractFactory;
 
 /**
  * @category   Zend
@@ -24,7 +24,7 @@ class Factory extends AbstractFactory
     /**
      * @var string Interface which adapter must implement to be considered valid
      */
-    protected static $_adapterInterface = 'Zend\Cloud\QueueService\Adapter\AdapterInterface';
+    protected static $_adapterInterface = 'ZendCloud\QueueService\Adapter\AdapterInterface';
 
     /**
      * Constructor

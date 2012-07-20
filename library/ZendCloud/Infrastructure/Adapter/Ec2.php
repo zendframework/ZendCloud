@@ -8,18 +8,18 @@
  * @package   Zend_Cloud
  */
 
-namespace Zend\Cloud\Infrastructure\Adapter;
+namespace ZendCloud\Infrastructure\Adapter;
 
 use Traversable;
-use Zend\Cloud\Infrastructure\Image;
-use Zend\Cloud\Infrastructure\ImageList;
-use Zend\Cloud\Infrastructure\Instance;
-use Zend\Cloud\Infrastructure\InstanceList;
-use Zend\Service\Amazon\Ec2\AvailabilityZones as Ec2Zone;
-use Zend\Service\Amazon\Ec2\CloudWatch as Ec2Monitor;
-use Zend\Service\Amazon\Ec2\Exception as Ec2Exception;
-use Zend\Service\Amazon\Ec2\Image as Ec2Image;
-use Zend\Service\Amazon\Ec2\Instance as Ec2Instance;
+use ZendCloud\Infrastructure\Image;
+use ZendCloud\Infrastructure\ImageList;
+use ZendCloud\Infrastructure\Instance;
+use ZendCloud\Infrastructure\InstanceList;
+use ZendService\Amazon\Ec2\AvailabilityZones as Ec2Zone;
+use ZendService\Amazon\Ec2\CloudWatch as Ec2Monitor;
+use ZendService\Amazon\Ec2\Exception as Ec2Exception;
+use ZendService\Amazon\Ec2\Image as Ec2Image;
+use ZendService\Amazon\Ec2\Instance as Ec2Instance;
 use Zend\Stdlib\ArrayUtils;
 
 /**

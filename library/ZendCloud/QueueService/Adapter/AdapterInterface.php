@@ -8,7 +8,7 @@
  * @package   Zend_Cloud
  */
 
-namespace Zend\Cloud\QueueService\Adapter;
+namespace ZendCloud\QueueService\Adapter;
 
 /**
  * Common interface for queue services in the cloud. This interface supports
@@ -105,7 +105,7 @@ interface AdapterInterface
      * @param  string $queueId
      * @param  int    $max
      * @param  array  $options
-     * @return array[\Zend\Cloud\QueueService\Message]  Array of messages
+     * @return array[\ZendCloud\QueueService\Message]  Array of messages
      */
     public function receiveMessages($queueId, $max = 1, $options = null);
 
@@ -115,7 +115,7 @@ interface AdapterInterface
      * @param  string $queueId
      * @param  int $num How many messages
      * @param  array  $options
-     * @return array[\Zend\Cloud\QueueService\Message]
+     * @return array[\ZendCloud\QueueService\Message]
      */
     public function peekMessages($queueId, $num = 1, $options = null);
 
@@ -123,7 +123,7 @@ interface AdapterInterface
      * Delete the specified message from the specified queue.
      *
      * @param  string $queueId
-     * @param  \Zend\Cloud\QueueService\Message $message Message to delete
+     * @param  \ZendCloud\QueueService\Message $message Message to delete
      * @param  array  $options
      * @return void
      *

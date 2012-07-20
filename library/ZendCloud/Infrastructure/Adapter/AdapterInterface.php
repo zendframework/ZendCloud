@@ -8,7 +8,7 @@
  * @package   Zend_Cloud
  */
 
-namespace Zend\Cloud\Infrastructure\Adapter;
+namespace ZendCloud\Infrastructure\Adapter;
 
 /**
  * Adapter interface for infrastructure service
@@ -33,7 +33,7 @@ interface AdapterInterface
     /**
      * Return a list of the available instances
      *
-     * @return \Zend\Cloud\Infrastructure\InstanceList
+     * @return \ZendCloud\Infrastructure\InstanceList
      */
     public function listInstances();
 
@@ -107,7 +107,7 @@ interface AdapterInterface
     /**
      * Return all the available instances images
      *
-     * @return \Zend\Cloud\Infrastructure\ImageList
+     * @return \ZendCloud\Infrastructure\ImageList
      */
     public function imagesInstance();
 

@@ -8,7 +8,7 @@
  * @package   Zend_Cloud
  */
 
-namespace Zend\Cloud\DocumentService\QueryAdapter;
+namespace ZendCloud\DocumentService\QueryAdapter;
 
 /**
  * This interface describes the API that concrete query adapter should implement
@@ -34,7 +34,7 @@ interface QueryAdapterInterface
      * SELECT clause (fields to be selected)
      *
      * @param string $select
-     * @return \Zend\Cloud\DocumentService\QueryAdapter\QueryAdapterInterface
+     * @return \ZendCloud\DocumentService\QueryAdapter\QueryAdapterInterface
      */
     public function select($select);
 
@@ -42,7 +42,7 @@ interface QueryAdapterInterface
      * FROM clause (table name)
      *
      * @param string $from
-     * @return \Zend\Cloud\DocumentService\QueryAdapter\QueryAdapterInterface
+     * @return \ZendCloud\DocumentService\QueryAdapter\QueryAdapterInterface
      */
     public function from($from);
 
@@ -52,7 +52,7 @@ interface QueryAdapterInterface
      * @param string $where
      * @param mixed $value Value or array of values to be inserted instead of ?
      * @param string $op Operation to use to join where clauses (AND/OR)
-     * @return \Zend\Cloud\DocumentService\QueryAdapter\QueryAdapterInterface
+     * @return \ZendCloud\DocumentService\QueryAdapter\QueryAdapterInterface
      */
     public function where($where, $value = null, $op = 'and');
 
@@ -63,7 +63,7 @@ interface QueryAdapterInterface
      * have special syntax for primary keys
      *
      * @param mixed $value Row ID for the document
-     * @return \Zend\Cloud\DocumentService\QueryAdapter\QueryAdapterInterface
+     * @return \ZendCloud\DocumentService\QueryAdapter\QueryAdapterInterface
      */
     public function whereId($value);
 
@@ -71,7 +71,7 @@ interface QueryAdapterInterface
      * LIMIT clause (how many rows ot return)
      *
      * @param int $limit
-     * @return \Zend\Cloud\DocumentService\QueryAdapter\QueryAdapterInterface
+     * @return \ZendCloud\DocumentService\QueryAdapter\QueryAdapterInterface
      */
     public function limit($limit);
 
@@ -80,7 +80,7 @@ interface QueryAdapterInterface
      *
      * @param string $sort Column to sort by
      * @param string $direction Direction - asc/desc
-     * @return \Zend\Cloud\DocumentService\QueryAdapter\QueryAdapterInterface
+     * @return \ZendCloud\DocumentService\QueryAdapter\QueryAdapterInterface
      */
     public function order($sort, $direction = 'asc');
 

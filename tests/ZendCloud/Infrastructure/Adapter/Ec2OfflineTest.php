@@ -8,13 +8,13 @@
  * @package   Zend_Cloud
  */
 
-namespace ZendTest\Cloud\Infrastructure\Adapter;
+namespace ZendCloudTest\Infrastructure\Adapter;
 
 use Zend\Http\Client as HttpClient;
 use Zend\Http\Client\Adapter\Test as HttpTest;
-use Zend\Cloud\Infrastructure\Adapter\Ec2;
-use Zend\Cloud\Infrastructure\Instance;
-use Zend\Cloud\Infrastructure\Factory as CloudFactory;
+use ZendCloud\Infrastructure\Adapter\Ec2;
+use ZendCloud\Infrastructure\Instance;
+use ZendCloud\Infrastructure\Factory as CloudFactory;
 
 class Ec2OfflineTest extends \PHPUnit_Framework_TestCase
 {
@@ -26,7 +26,7 @@ class Ec2OfflineTest extends \PHPUnit_Framework_TestCase
     /**
      * Reference to Infrastructure object
      *
-     * @var \Zend\Cloud\Infrastructure\Adapter
+     * @var \ZendCloud\Infrastructure\Adapter
      */
     protected $infrastructure;
 
@@ -50,7 +50,7 @@ class Ec2OfflineTest extends \PHPUnit_Framework_TestCase
     public function setUp()
     {
         $this->infrastructure = CloudFactory::getAdapter(array(
-            CloudFactory::INFRASTRUCTURE_ADAPTER_KEY => 'Zend\Cloud\Infrastructure\Adapter\Ec2',
+            CloudFactory::INFRASTRUCTURE_ADAPTER_KEY => 'ZendCloud\Infrastructure\Adapter\Ec2',
             Ec2::AWS_ACCESS_KEY         => '0123456789',
             Ec2::AWS_SECRET_KEY         => 'test',
             Ec2::AWS_REGION             => 'us-east-1'
@@ -83,7 +83,7 @@ class Ec2OfflineTest extends \PHPUnit_Framework_TestCase
     public static function getConfigArray()
     {
          return array(
-            CloudFactory::INFRASTRUCTURE_ADAPTER_KEY => 'Zend\Cloud\Infrastructure\Adapter\Ec2',
+            CloudFactory::INFRASTRUCTURE_ADAPTER_KEY => 'ZendCloud\Infrastructure\Adapter\Ec2',
             Ec2::AWS_ACCESS_KEY         => 'test',
             Ec2::AWS_SECRET_KEY         => 'test',
             Ec2::AWS_REGION             => 'us-east-1',
@@ -107,7 +107,7 @@ class Ec2OfflineTest extends \PHPUnit_Framework_TestCase
     public function testConstructExceptionMissingParams()
     {
         $this->setExpectedException(
-            'Zend\Cloud\Infrastructure\Adapter\Exception\InvalidArgumentException',
+            'ZendCloud\Infrastructure\Adapter\Exception\InvalidArgumentException',
             'Invalid options provided'
         );
         $image = new Ec2('foo');
@@ -118,7 +118,7 @@ class Ec2OfflineTest extends \PHPUnit_Framework_TestCase
      */
     public function testGetAdapter()
     {
-        $this->assertInstanceOf('Zend\Service\Amazon\Ec2\Instance',$this->infrastructure->getAdapter());
+        $this->assertInstanceOf('ZendService\Amazon\Ec2\Instance',$this->infrastructure->getAdapter());
     }
 
     /**

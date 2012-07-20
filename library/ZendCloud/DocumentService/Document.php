@@ -8,7 +8,7 @@
  * @package   Zend_Cloud
  */
 
-namespace Zend\Cloud\DocumentService;
+namespace ZendCloud\DocumentService;
 
 use ArrayAccess;
 use Countable;
@@ -45,7 +45,7 @@ class Document implements
     protected $_fields;
 
     /**
-     * Construct an instance of Zend\Cloud\DocumentService\Document.
+     * Construct an instance of ZendCloud\DocumentService\Document.
      *
      * If no identifier is provided, but a field matching KEY_FIELD is present,
      * then that field's value will be used as the document identifier.
@@ -73,7 +73,7 @@ class Document implements
      * Set document identifier
      *
      * @param  mixed $id
-     * @return \Zend\Cloud\DocumentService\Document
+     * @return \ZendCloud\DocumentService\Document
      */
     public function setId($id)
     {
@@ -120,7 +120,7 @@ class Document implements
      *
      * @param  string $name
      * @param  mixed $value
-     * @return \Zend\Cloud\DocumentService\Document
+     * @return \ZendCloud\DocumentService\Document
      */
     public function setField($name, $value)
     {

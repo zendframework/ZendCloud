@@ -8,9 +8,9 @@
  * @package   Zend_Cloud
  */
 
-namespace Zend\Cloud\Infrastructure\Adapter\Exception;
+namespace ZendCloud\Infrastructure\Adapter\Exception;
 
-use Zend\Cloud\Infrastructure\Exception;
+use ZendCloud\Infrastructure\Exception;
 
 /**
  * @category   Zend

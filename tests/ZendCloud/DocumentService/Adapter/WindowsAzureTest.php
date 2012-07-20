@@ -8,11 +8,11 @@
  * @package   Zend_Cloud
  */
 
-namespace ZendTest\Cloud\DocumentService\Adapter;
+namespace ZendCloudTest\DocumentService\Adapter;
 
-use ZendTest\Cloud\DocumentService\TestCase;
-use Zend\Cloud\DocumentService\Factory;
-use Zend\Cloud\DocumentService\Adapter\WindowsAzure;
+use ZendCloudTest\DocumentService\TestCase;
+use ZendCloud\DocumentService\Factory;
+use ZendCloud\DocumentService\Adapter\WindowsAzure;
 use Zend\Config\Config;
 
 /**
@@ -30,13 +30,13 @@ class WindowsAzureTest extends TestCase
      */
     protected $_waitPeriod = 10;
 
-    protected $_clientType = 'Zend\Service\WindowsAzure\Storage\Table';
+    protected $_clientType = 'ZendService\WindowsAzure\Storage\Table';
 
     public function testQueryStructOrder()
     {
         try {
             parent::testQueryStructOrder();
-        } catch(\Zend\Cloud\DocumentService\Adapter\Exception\OperationNotAvailableException $e) {
+        } catch(\ZendCloud\DocumentService\Adapter\Exception\OperationNotAvailableException $e) {
             $this->_commonDocument->deleteCollection($this->_collectionName("testStructQuery4"));
             $this->markTestSkipped('Azure query sorting not implemented yet');
         }
@@ -45,13 +45,13 @@ class WindowsAzureTest extends TestCase
     public static function getConfigArray()
     {
          return array(
-            \Zend\Cloud\DocumentService\Factory::DOCUMENT_ADAPTER_KEY => 'Zend\Cloud\DocumentService\Adapter\WindowsAzure',
-            \Zend\Cloud\DocumentService\Adapter\WindowsAzure::ACCOUNT_NAME => constant('TESTS_ZEND_SERVICE_WINDOWSAZURE_ONLINE_ACCOUNTNAME'),
-            \Zend\Cloud\DocumentService\Adapter\WindowsAzure::ACCOUNT_KEY => constant('TESTS_ZEND_SERVICE_WINDOWSAZURE_ONLINE_ACCOUNTKEY'),
-            \Zend\Cloud\DocumentService\Adapter\WindowsAzure::HOST => constant('TESTS_ZEND_SERVICE_WINDOWSAZURE_ONLINE_TABLE_HOST'),
-            \Zend\Cloud\DocumentService\Adapter\WindowsAzure::PROXY_HOST => constant('TESTS_ZEND_SERVICE_WINDOWSAZURE_ONLINE_STORAGE_PROXY_HOST'),
-            \Zend\Cloud\DocumentService\Adapter\WindowsAzure::PROXY_PORT => constant('TESTS_ZEND_SERVICE_WINDOWSAZURE_ONLINE_STORAGE_PROXY_PORT'),
-            \Zend\Cloud\DocumentService\Adapter\WindowsAzure::PROXY_CREDENTIALS => constant('TESTS_ZEND_SERVICE_WINDOWSAZURE_ONLINE_STORAGE_PROXY_CREDENTIALS'),
+            \ZendCloud\DocumentService\Factory::DOCUMENT_ADAPTER_KEY => 'ZendCloud\DocumentService\Adapter\WindowsAzure',
+            \ZendCloud\DocumentService\Adapter\WindowsAzure::ACCOUNT_NAME => constant('TESTS_ZEND_SERVICE_WINDOWSAZURE_ONLINE_ACCOUNTNAME'),
+            \ZendCloud\DocumentService\Adapter\WindowsAzure::ACCOUNT_KEY => constant('TESTS_ZEND_SERVICE_WINDOWSAZURE_ONLINE_ACCOUNTKEY'),
+            \ZendCloud\DocumentService\Adapter\WindowsAzure::HOST => constant('TESTS_ZEND_SERVICE_WINDOWSAZURE_ONLINE_TABLE_HOST'),
+            \ZendCloud\DocumentService\Adapter\WindowsAzure::PROXY_HOST => constant('TESTS_ZEND_SERVICE_WINDOWSAZURE_ONLINE_STORAGE_PROXY_HOST'),
+            \ZendCloud\DocumentService\Adapter\WindowsAzure::PROXY_PORT => constant('TESTS_ZEND_SERVICE_WINDOWSAZURE_ONLINE_STORAGE_PROXY_PORT'),
+            \ZendCloud\DocumentService\Adapter\WindowsAzure::PROXY_CREDENTIALS => constant('TESTS_ZEND_SERVICE_WINDOWSAZURE_ONLINE_STORAGE_PROXY_CREDENTIALS'),
         );
     }
 

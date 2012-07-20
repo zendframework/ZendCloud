@@ -8,9 +8,9 @@
  * @package   Zend_Cloud
  */
 
-namespace Zend\Cloud\Infrastructure\Adapter\Exception;
+namespace ZendCloud\Infrastructure\Adapter\Exception;
 
-use Zend\Cloud\Infrastructure\Exception\ExceptionInterface as Exception;
+use ZendCloud\Infrastructure\Exception\ExceptionInterface as Exception;
 
 interface ExceptionInterface extends Exception
 {}

@@ -8,10 +8,10 @@
  * @package   Zend_Cloud
  */
 
-namespace ZendTest\Cloud\StorageService\Adapter;
+namespace ZendCloudTest\StorageService\Adapter;
 
-use ZendTest\Cloud\StorageService\TestCase;
-use Zend\Cloud\StorageService\Adapter\WindowsAzure;
+use ZendCloudTest\StorageService\TestCase;
+use ZendCloud\StorageService\Adapter\WindowsAzure;
 use Zend\Config\Config;
 
 /**
@@ -21,7 +21,7 @@ use Zend\Config\Config;
  */
 class WindowsAzureTest extends TestCase
 {
-    protected $_clientType = 'Zend\Service\WindowsAzure\Storage\Blob';
+    protected $_clientType = 'ZendService\WindowsAzure\Storage\Blob';
 
     protected function _getConfig()
     {
@@ -35,14 +35,14 @@ class WindowsAzureTest extends TestCase
         }
 
         $config = new \Zend\Config\Config(array(
-            \Zend\Cloud\StorageService\Factory::STORAGE_ADAPTER_KEY => 'Zend\Cloud\StorageService\Adapter\WindowsAzure',
-            \Zend\Cloud\StorageService\Adapter\WindowsAzure::ACCOUNT_NAME => constant('TESTS_ZEND_SERVICE_WINDOWSAZURE_ONLINE_ACCOUNTNAME'),
-            \Zend\Cloud\StorageService\Adapter\WindowsAzure::ACCOUNT_KEY => constant('TESTS_ZEND_SERVICE_WINDOWSAZURE_ONLINE_ACCOUNTKEY'),
-            \Zend\Cloud\StorageService\Adapter\WindowsAzure::HOST => constant('TESTS_ZEND_SERVICE_WINDOWSAZURE_ONLINE_STORAGE_HOST'),
-            \Zend\Cloud\StorageService\Adapter\WindowsAzure::PROXY_HOST => constant('TESTS_ZEND_SERVICE_WINDOWSAZURE_ONLINE_STORAGE_PROXY_HOST'),
-            \Zend\Cloud\StorageService\Adapter\WindowsAzure::PROXY_PORT => constant('TESTS_ZEND_SERVICE_WINDOWSAZURE_ONLINE_STORAGE_PROXY_PORT'),
-            \Zend\Cloud\StorageService\Adapter\WindowsAzure::PROXY_CREDENTIALS => constant('TESTS_ZEND_SERVICE_WINDOWSAZURE_ONLINE_STORAGE_PROXY_CREDENTIALS'),
-            \Zend\Cloud\StorageService\Adapter\WindowsAzure::CONTAINER => constant('TESTS_ZEND_CLOUD_STORAGE_WINDOWSAZURE_CONTAINER'),
+            \ZendCloud\StorageService\Factory::STORAGE_ADAPTER_KEY => 'ZendCloud\StorageService\Adapter\WindowsAzure',
+            \ZendCloud\StorageService\Adapter\WindowsAzure::ACCOUNT_NAME => constant('TESTS_ZEND_SERVICE_WINDOWSAZURE_ONLINE_ACCOUNTNAME'),
+            \ZendCloud\StorageService\Adapter\WindowsAzure::ACCOUNT_KEY => constant('TESTS_ZEND_SERVICE_WINDOWSAZURE_ONLINE_ACCOUNTKEY'),
+            \ZendCloud\StorageService\Adapter\WindowsAzure::HOST => constant('TESTS_ZEND_SERVICE_WINDOWSAZURE_ONLINE_STORAGE_HOST'),
+            \ZendCloud\StorageService\Adapter\WindowsAzure::PROXY_HOST => constant('TESTS_ZEND_SERVICE_WINDOWSAZURE_ONLINE_STORAGE_PROXY_HOST'),
+            \ZendCloud\StorageService\Adapter\WindowsAzure::PROXY_PORT => constant('TESTS_ZEND_SERVICE_WINDOWSAZURE_ONLINE_STORAGE_PROXY_PORT'),
+            \ZendCloud\StorageService\Adapter\WindowsAzure::PROXY_CREDENTIALS => constant('TESTS_ZEND_SERVICE_WINDOWSAZURE_ONLINE_STORAGE_PROXY_CREDENTIALS'),
+            \ZendCloud\StorageService\Adapter\WindowsAzure::CONTAINER => constant('TESTS_ZEND_CLOUD_STORAGE_WINDOWSAZURE_CONTAINER'),
         ));
 
         return $config;

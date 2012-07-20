@@ -8,11 +8,11 @@
  * @package   Zend_Cloud
  */
 
-namespace Zend\Cloud\DocumentService\Adapter\WindowsAzure;
+namespace ZendCloud\DocumentService\Adapter\WindowsAzure;
 
-use Zend\Cloud\DocumentService\Adapter\Exception;
-use Zend\Cloud\DocumentService\QueryAdapter\QueryAdapterInterface;
-use Zend\Service\WindowsAzure\Storage\TableEntityQuery;
+use ZendCloud\DocumentService\Adapter\Exception;
+use ZendCloud\DocumentService\QueryAdapter\QueryAdapterInterface;
+use ZendService\WindowsAzure\Storage\TableEntityQuery;
 
 /**
  * Class implementing Query adapter for working with Azure queries in a
@@ -28,19 +28,19 @@ class Query implements QueryAdapterInterface
     /**
      * Azure concrete query
      *
-     * @var \Zend\Service\WindowsAzure\Storage\TableEntityQuery
+     * @var \ZendService\WindowsAzure\Storage\TableEntityQuery
      */
     protected $_azureSelect;
 
     /**
      * Constructor
      *
-     * @param  null|\Zend\Service\WindowsAzure\Storage\TableEntityQuery $select Table select object
+     * @param  null|\ZendService\WindowsAzure\Storage\TableEntityQuery $select Table select object
      * @return void
      */
     public function __construct($select = null)
     {
-        if (!$select instanceof \Zend\Service\WindowsAzure\Storage\TableEntityQuery) {
+        if (!$select instanceof \ZendService\WindowsAzure\Storage\TableEntityQuery) {
             $select = new TableEntityQuery();
         }
         $this->_azureSelect = $select;
@@ -52,7 +52,7 @@ class Query implements QueryAdapterInterface
      * Does nothing for Azure.
      *
      * @param  string $select
-     * @return \Zend\Cloud\DocumentService\Adapter\WindowsAzure\Query
+     * @return \ZendCloud\DocumentService\Adapter\WindowsAzure\Query
      */
     public function select($select)
     {
@@ -63,7 +63,7 @@ class Query implements QueryAdapterInterface
      * FROM clause (table name)
      *
      * @param string $from
-     * @return \Zend\Cloud\DocumentService\Adapter\WindowsAzure\Query
+     * @return \ZendCloud\DocumentService\Adapter\WindowsAzure\Query
      */
     public function from($from)
     {
@@ -77,7 +77,7 @@ class Query implements QueryAdapterInterface
      * @param string $where
      * @param mixed $value Value or array of values to be inserted instead of ?
      * @param string $op Operation to use to join where clauses (AND/OR)
-     * @return \Zend\Cloud\DocumentService\Adapter\WindowsAzure\Query
+     * @return \ZendCloud\DocumentService\Adapter\WindowsAzure\Query
      */
     public function where($where, $value = null, $op = 'and')
     {
@@ -96,7 +96,7 @@ class Query implements QueryAdapterInterface
      * have special syntax for primary keys
      *
      * @param  array $value Row ID for the document (PartitionKey, RowKey)
-     * @return \Zend\Cloud\DocumentService\Adapter\WindowsAzure\Query
+     * @return \ZendCloud\DocumentService\Adapter\WindowsAzure\Query
      */
     public function whereId($value)
     {
@@ -111,7 +111,7 @@ class Query implements QueryAdapterInterface
      * LIMIT clause (how many rows to return)
      *
      * @param  int $limit
-     * @return \Zend\Cloud\DocumentService\Adapter\WindowsAzure\Query
+     * @return \ZendCloud\DocumentService\Adapter\WindowsAzure\Query
      */
     public function limit($limit)
     {
@@ -125,8 +125,8 @@ class Query implements QueryAdapterInterface
      * @todo   Azure service doesn't seem to support this yet; emulate?
      * @param  string $sort Column to sort by
      * @param  string $direction Direction - asc/desc
-     * @return \Zend\Cloud\DocumentService\Adapter\WindowsAzure\Query
-     * @throws \Zend\Cloud\Exception\OperationNotAvailableException
+     * @return \ZendCloud\DocumentService\Adapter\WindowsAzure\Query
+     * @throws \ZendCloud\Exception\OperationNotAvailableException
      */
     public function order($sort, $direction = 'asc')
     {
@@ -136,7 +136,7 @@ class Query implements QueryAdapterInterface
     /**
      * Get Azure select query
      *
-     * @return \Zend\Service\WindowsAzure\Storage\TableEntityQuery
+     * @return \ZendService\WindowsAzure\Storage\TableEntityQuery
      */
     public function getAzureSelect()
     {
@@ -148,7 +148,7 @@ class Query implements QueryAdapterInterface
      *
      * Simply return the WindowsAzure table entity query object
      *
-     * @return \Zend\Service\WindowsAzure\Storage\TableEntityQuery
+     * @return \ZendService\WindowsAzure\Storage\TableEntityQuery
      */
     public function assemble()
     {

@@ -8,7 +8,7 @@
  * @package   Zend_Cloud
  */
 
-namespace Zend\Cloud\Infrastructure;
+namespace ZendCloud\Infrastructure;
 
 use ArrayAccess;
 use Countable;
@@ -26,7 +26,7 @@ class InstanceList implements
     Iterator
 {
     /**
-     * @var array Array of Zend\Cloud\Infrastructure\Instance
+     * @var array Array of ZendCloud\Infrastructure\Instance
      */
     protected $instances = array();
 
@@ -36,7 +36,7 @@ class InstanceList implements
     protected $iteratorKey = 0;
 
     /**
-     * @var \Zend\Cloud\Infrastructure\Adapter\AdapterInterface
+     * @var \ZendCloud\Infrastructure\Adapter\AdapterInterface
      */
     protected $adapter;
 
@@ -50,7 +50,7 @@ class InstanceList implements
     public function __construct(Adapter\AdapterInterface $adapter, array $instances = null)
     {
         if (!($adapter instanceof Adapter\AdapterInterface)) {
-            throw new Exception\InvalidArgumentException('You must pass a Zend\Cloud\Infrastructure\Adapter\AdapterInterface');
+            throw new Exception\InvalidArgumentException('You must pass a ZendCloud\Infrastructure\Adapter\AdapterInterface');
         }
         if (empty($instances)) {
             throw new Exception\InvalidArgumentException('You must pass an array of Instances');

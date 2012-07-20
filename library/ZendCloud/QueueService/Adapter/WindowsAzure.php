@@ -8,14 +8,14 @@
  * @package   Zend_Cloud
  */
 
-namespace Zend\Cloud\QueueService\Adapter;
+namespace ZendCloud\QueueService\Adapter;
 
 use Traversable;
-use Zend\Cloud\QueueService\Exception;
-use Zend\Cloud\QueueService\Message;
-use Zend\Service\WindowsAzure\Exception as WindowsAzureException;
-use Zend\Service\WindowsAzure\Storage\Queue;
-use Zend\Service\WindowsAzure\Storage\Storage;
+use ZendCloud\QueueService\Exception;
+use ZendCloud\QueueService\Message;
+use ZendService\WindowsAzure\Exception as WindowsAzureException;
+use ZendService\WindowsAzure\Storage\Queue;
+use ZendService\WindowsAzure\Storage\Storage;
 use Zend\Stdlib\ArrayUtils;
 
 /**
@@ -49,7 +49,7 @@ class WindowsAzure extends AbstractAdapter
     /**
      * Storage client
      *
-     * @var \Zend\Service\WindowsAzure\Storage\Queue
+     * @var \ZendService\WindowsAzure\Storage\Queue
      */
     protected $_storageClient = null;
 
@@ -77,7 +77,7 @@ class WindowsAzure extends AbstractAdapter
             $this->setMessageSetClass($options[self::MESSAGESET_CLASS]);
         }
 
-        // Build \Zend\Service\WindowsAzure\Storage\Blob instance
+        // Build \ZendService\WindowsAzure\Storage\Blob instance
         if (!isset($options[self::HOST])) {
             $host = self::DEFAULT_HOST;
         } else {
@@ -137,7 +137,7 @@ class WindowsAzure extends AbstractAdapter
     public function deleteQueue($queueId, $options = null)
     {
         try {
-            if ($queueId instanceof \Zend\Service\WindowsAzure\Storage\QueueInstance) {
+            if ($queueId instanceof \ZendService\WindowsAzure\Storage\QueueInstance) {
                 $queueId = $queueId->Name;
             }
             return $this->_storageClient->deleteQueue($queueId);
@@ -181,7 +181,7 @@ class WindowsAzure extends AbstractAdapter
     public function fetchQueueMetadata($queueId, $options = null)
     {
         try {
-            if ($queueId instanceof \Zend\Service\WindowsAzure\Storage\QueueInstance) {
+            if ($queueId instanceof \ZendService\WindowsAzure\Storage\QueueInstance) {
                 $queueId = $queueId->Name;
             }
             return $this->_storageClient->getQueueMetadata($queueId);
@@ -203,7 +203,7 @@ class WindowsAzure extends AbstractAdapter
     public function storeQueueMetadata($queueId, $metadata, $options = null)
     {
         try {
-            if ($queueId instanceof \Zend\Service\WindowsAzure\Storage\QueueInstance) {
+            if ($queueId instanceof \ZendService\WindowsAzure\Storage\QueueInstance) {
                 $queueId = $queueId->Name;
             }
             return $this->_storageClient->setQueueMetadata($queueId, $metadata);
@@ -223,7 +223,7 @@ class WindowsAzure extends AbstractAdapter
     public function sendMessage($queueId, $message, $options = null)
     {
         try {
-            if ($queueId instanceof \Zend\Service\WindowsAzure\Storage\QueueInstance) {
+            if ($queueId instanceof \ZendService\WindowsAzure\Storage\QueueInstance) {
                 $queueId = $queueId->Name;
             }
             return $this->_storageClient->putMessage(
@@ -241,12 +241,12 @@ class WindowsAzure extends AbstractAdapter
      * @param  string $queueId
      * @param  int    $max
      * @param  array  $options
-     * @return \Zend\Cloud\QueueService\Message[]
+     * @return \ZendCloud\QueueService\Message[]
      */
     public function receiveMessages($queueId, $max = 1, $options = null)
     {
         try {
-            if ($queueId instanceof \Zend\Service\WindowsAzure\Storage\QueueInstance) {
+            if ($queueId instanceof \ZendService\WindowsAzure\Storage\QueueInstance) {
                 $queueId = $queueId->Name;
             }
             if (isset($options[self::VISIBILITY_TIMEOUT])) {
@@ -261,11 +261,11 @@ class WindowsAzure extends AbstractAdapter
     }
 
     /**
-     * Create \Zend\Cloud\QueueService\Message array for
+     * Create \ZendCloud\QueueService\Message array for
      * Azure messages.
      *
      * @param array $messages
-     * @return \Zend\Cloud\QueueService\Message[]
+     * @return \ZendCloud\QueueService\Message[]
      */
     protected function _makeMessages($messages)
     {
@@ -282,20 +282,20 @@ class WindowsAzure extends AbstractAdapter
      * Delete the specified message from the specified queue.
      *
      * @param  string $queueId
-     * @param  \Zend\Cloud\QueueService\Message $message Message ID or message
+     * @param  \ZendCloud\QueueService\Message $message Message ID or message
      * @param  array  $options
      * @return void
      */
     public function deleteMessage($queueId, $message, $options = null)
     {
         try {
-            if ($queueId instanceof \Zend\Service\WindowsAzure\Storage\QueueInstance) {
+            if ($queueId instanceof \ZendService\WindowsAzure\Storage\QueueInstance) {
                 $queueId = $queueId->Name;
             }
             if ($message instanceof Message) {
                 $message = $message->getMessage();
             }
-            if ($message instanceof \Zend\Service\WindowsAzure\Storage\QueueMessage) {
+            if ($message instanceof \ZendService\WindowsAzure\Storage\QueueMessage) {
                 return $this->_storageClient->deleteMessage($queueId, $message);
             } else {
                 throw new Exception\InvalidArgumentException('Cannot delete the message: message object required');
@@ -311,12 +311,12 @@ class WindowsAzure extends AbstractAdapter
      * @param  string $queueId
      * @param  int $num How many messages
      * @param  array  $options
-     * @return \Zend\Cloud\QueueService\Message[]
+     * @return \ZendCloud\QueueService\Message[]
      */
     public function peekMessages($queueId, $num = 1, $options = null)
     {
         try {
-            if ($queueId instanceof \Zend\Service\WindowsAzure\Storage\QueueInstance) {
+            if ($queueId instanceof \ZendService\WindowsAzure\Storage\QueueInstance) {
                 $queueId = $queueId->Name;
             }
             return $this->_makeMessages($this->_storageClient->peekMessages($queueId, $num));
@@ -327,7 +327,7 @@ class WindowsAzure extends AbstractAdapter
 
     /**
      * Get Azure implementation
-     * @return \Zend\Service\WindowsAzure\Storage\Queue
+     * @return \ZendService\WindowsAzure\Storage\Queue
      */
     public function getClient()
     {

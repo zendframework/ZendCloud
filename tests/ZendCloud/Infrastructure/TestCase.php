@@ -8,14 +8,14 @@
  * @package   Zend_Cloud
  */
 
-namespace ZendTest\Cloud\Infrastructure;
+namespace ZendCloudTest\Infrastructure;
 
-use Zend\Cloud\Infrastructure\Adapter\AdapterInterface;
-use Zend\Cloud\Infrastructure\Instance;
+use ZendCloud\Infrastructure\Adapter\AdapterInterface;
+use ZendCloud\Infrastructure\Instance;
 
 /**
  * This class forces the adapter tests to implement tests for all methods on
- * Zend\Cloud\Infrastructure.
+ * ZendCloud\Infrastructure.
  *
  * @category   Zend
  * @package    Zend_Cloud
@@ -26,7 +26,7 @@ abstract class TestCase extends \PHPUnit_Framework_TestCase
     /**
      * Reference to Infrastructure adapter to test
      *
-     * @var \Zend\Cloud\Infrastructure
+     * @var \ZendCloud\Infrastructure
      */
     protected $_commonInfrastructure;
 
@@ -104,7 +104,7 @@ abstract class TestCase extends \PHPUnit_Framework_TestCase
     public function testConstructExceptionMissingParams()
     {
         $this->setExpectedException(
-            'Zend\Cloud\Infrastructure\Exception\InvalidArgumentException',
+            'ZendCloud\Infrastructure\Exception\InvalidArgumentException',
             'You must pass an array of params'
         );
         $instance = new Instance(self::$adapter,array());
@@ -116,8 +116,8 @@ abstract class TestCase extends \PHPUnit_Framework_TestCase
     public function testConstructExceptionInvalidKeys()
     {
         $this->setExpectedException(
-            'Zend\Cloud\Infrastructure\Exception\InvalidArgumentException',
-            'The param "'.Instance::INSTANCE_ID.'" is a required param for Zend\Cloud\Infrastructure\Instance'
+            'ZendCloud\Infrastructure\Exception\InvalidArgumentException',
+            'The param "'.Instance::INSTANCE_ID.'" is a required param for ZendCloud\Infrastructure\Instance'
         );
         $instance = new Instance(self::$adapter,array('foo'=>'bar'));
     }
@@ -154,7 +154,7 @@ abstract class TestCase extends \PHPUnit_Framework_TestCase
      */
     public function testGetStatus()
     {
-        $this->assertEquals('ZendTest\Cloud\Infrastructure\Adapter\TestAsset\MockAdapter::statusInstance',$this->_commonInfrastructure->getStatus());
+        $this->assertEquals('ZendCloudTest\Infrastructure\Adapter\TestAsset\MockAdapter::statusInstance',$this->_commonInfrastructure->getStatus());
         $this->assertEquals('foo',$this->_commonInfrastructure->getAttribute(Instance::INSTANCE_STATUS));
     }
 
@@ -217,7 +217,7 @@ abstract class TestCase extends \PHPUnit_Framework_TestCase
      */
     public function testReboot()
     {
-        $this->assertEquals('ZendTest\Cloud\Infrastructure\Adapter\TestAsset\MockAdapter::rebootInstance',$this->_commonInfrastructure->reboot());
+        $this->assertEquals('ZendCloudTest\Infrastructure\Adapter\TestAsset\MockAdapter::rebootInstance',$this->_commonInfrastructure->reboot());
     }
 
     /**
@@ -225,7 +225,7 @@ abstract class TestCase extends \PHPUnit_Framework_TestCase
      */
     public function testStop()
     {
-        $this->assertEquals('ZendTest\Cloud\Infrastructure\Adapter\TestAsset\MockAdapter::stopInstance',$this->_commonInfrastructure->stop());
+        $this->assertEquals('ZendCloudTest\Infrastructure\Adapter\TestAsset\MockAdapter::stopInstance',$this->_commonInfrastructure->stop());
     }
 
     /**
@@ -233,7 +233,7 @@ abstract class TestCase extends \PHPUnit_Framework_TestCase
      */
     public function testStart()
     {
-        $this->assertEquals('ZendTest\Cloud\Infrastructure\Adapter\TestAsset\MockAdapter::startInstance',$this->_commonInfrastructure->start());
+        $this->assertEquals('ZendCloudTest\Infrastructure\Adapter\TestAsset\MockAdapter::startInstance',$this->_commonInfrastructure->start());
     }
 
     /**
@@ -241,7 +241,7 @@ abstract class TestCase extends \PHPUnit_Framework_TestCase
      */
     public function testDestroy()
     {
-        $this->assertEquals('ZendTest\Cloud\Infrastructure\Adapter\TestAsset\MockAdapter::destroyInstance',$this->_commonInfrastructure->destroy());
+        $this->assertEquals('ZendCloudTest\Infrastructure\Adapter\TestAsset\MockAdapter::destroyInstance',$this->_commonInfrastructure->destroy());
     }
 
     /**
@@ -249,7 +249,7 @@ abstract class TestCase extends \PHPUnit_Framework_TestCase
      */
     public function testMonitor()
     {
-        $this->assertEquals('ZendTest\Cloud\Infrastructure\Adapter\TestAsset\MockAdapter::monitorInstance',$this->_commonInfrastructure->monitor('foo'));
+        $this->assertEquals('ZendCloudTest\Infrastructure\Adapter\TestAsset\MockAdapter::monitorInstance',$this->_commonInfrastructure->monitor('foo'));
     }
 
     /**
@@ -257,13 +257,13 @@ abstract class TestCase extends \PHPUnit_Framework_TestCase
      */
     public function testDeploy()
     {
-        $this->assertEquals('ZendTest\Cloud\Infrastructure\Adapter\TestAsset\MockAdapter::deployInstance',$this->_commonInfrastructure->deploy('foo','bar'));
+        $this->assertEquals('ZendCloudTest\Infrastructure\Adapter\TestAsset\MockAdapter::deployInstance',$this->_commonInfrastructure->deploy('foo','bar'));
     }
 
     public function setUp()
     {
         $this->_config = $this->_getConfig();
-        $this->_commonInfrastructure = \Zend\Cloud\Infrastructure\Factory::getAdapter($this->_config);
+        $this->_commonInfrastructure = \ZendCloud\Infrastructure\Factory::getAdapter($this->_config);
         parent::setUp();
     }
 

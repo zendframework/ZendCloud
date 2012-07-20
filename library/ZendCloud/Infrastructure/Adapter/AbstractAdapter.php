@@ -8,9 +8,9 @@
  * @package   Zend_Cloud
  */
 
-namespace Zend\Cloud\Infrastructure\Adapter;
+namespace ZendCloud\Infrastructure\Adapter;
 
-use Zend\Cloud\Infrastructure\Instance;
+use ZendCloud\Infrastructure\Instance;
 
 /**
  * Abstract infrastructure service adapter

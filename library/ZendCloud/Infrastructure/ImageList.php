@@ -8,13 +8,13 @@
  * @package   Zend_Cloud
  */
 
-namespace Zend\Cloud\Infrastructure;
+namespace ZendCloud\Infrastructure;
 
 use ArrayAccess;
 use Countable;
 use Iterator;
-use Zend\Cloud\Infrastructure\Exception;
-use Zend\Cloud\Infrastructure\Image;
+use ZendCloud\Infrastructure\Exception;
+use ZendCloud\Infrastructure\Image;
 
 /**
  * List of images
@@ -28,7 +28,7 @@ class ImageList implements
     Iterator
 {
     /**
-     * @var array Array of Zend\Cloud\Infrastructure\Image
+     * @var array Array of ZendCloud\Infrastructure\Image
      */
     protected $images = array();
 

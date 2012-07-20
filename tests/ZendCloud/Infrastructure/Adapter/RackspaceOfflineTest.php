@@ -8,13 +8,13 @@
  * @package   Zend_Cloud
  */
 
-namespace ZendTest\Cloud\Infrastructure\Adapter;
+namespace ZendCloudTest\Infrastructure\Adapter;
 
 use Zend\Http\Client as HttpClient;
 use Zend\Http\Client\Adapter\Test as HttpTest;
-use Zend\Cloud\Infrastructure\Adapter\Rackspace;
-use Zend\Cloud\Infrastructure\Instance;
-use Zend\Cloud\Infrastructure\Factory as CloudFactory;
+use ZendCloud\Infrastructure\Adapter\Rackspace;
+use ZendCloud\Infrastructure\Instance;
+use ZendCloud\Infrastructure\Factory as CloudFactory;
 
 class RackspaceOfflineTest extends \PHPUnit_Framework_TestCase
 {
@@ -27,7 +27,7 @@ class RackspaceOfflineTest extends \PHPUnit_Framework_TestCase
     /**
      * Reference to Infrastructure object
      *
-     * @var \Zend\Cloud\Infrastructure\Adapter
+     * @var \ZendCloud\Infrastructure\Adapter
      */
     protected $infrastructure;
 
@@ -51,7 +51,7 @@ class RackspaceOfflineTest extends \PHPUnit_Framework_TestCase
     public function setUp()
     {
         $this->infrastructure = CloudFactory::getAdapter(array(
-            CloudFactory::INFRASTRUCTURE_ADAPTER_KEY => 'Zend\Cloud\Infrastructure\Adapter\Rackspace',
+            CloudFactory::INFRASTRUCTURE_ADAPTER_KEY => 'ZendCloud\Infrastructure\Adapter\Rackspace',
             Rackspace::RACKSPACE_USER   => 'test',
             Rackspace::RACKSPACE_KEY    => 'test',
             Rackspace::RACKSPACE_REGION => 'USA'
@@ -87,7 +87,7 @@ class RackspaceOfflineTest extends \PHPUnit_Framework_TestCase
     public static function getConfigArray()
     {
          return array(
-            CloudFactory::INFRASTRUCTURE_ADAPTER_KEY => 'Zend\Cloud\Infrastructure\Adapter\Rackspace',
+            CloudFactory::INFRASTRUCTURE_ADAPTER_KEY => 'ZendCloud\Infrastructure\Adapter\Rackspace',
             Rackspace::RACKSPACE_USER   => 'test',
             Rackspace::RACKSPACE_KEY    => 'test',
             Rackspace::RACKSPACE_REGION => 'USA'
@@ -112,7 +112,7 @@ class RackspaceOfflineTest extends \PHPUnit_Framework_TestCase
     public function testConstructExceptionMissingParams()
     {
         $this->setExpectedException(
-            'Zend\Cloud\Infrastructure\Adapter\Exception\InvalidArgumentException',
+            'ZendCloud\Infrastructure\Adapter\Exception\InvalidArgumentException',
             'Invalid options provided'
         );
         $instance = new Rackspace('foo');
@@ -123,7 +123,7 @@ class RackspaceOfflineTest extends \PHPUnit_Framework_TestCase
     public function testAuthenticationFailed()
     {
         $this->setExpectedException(
-            'Zend\Service\Rackspace\Exception\RuntimeException',
+            'ZendService\Rackspace\Exception\RuntimeException',
             'Authentication failed, you need a valid token to use the Rackspace API'
         );
         $images = $this->infrastructure->imagesInstance();
@@ -133,7 +133,7 @@ class RackspaceOfflineTest extends \PHPUnit_Framework_TestCase
      */
     public function testGetAdapter()
     {
-        $this->assertInstanceOf('Zend\Service\Rackspace\Servers',$this->infrastructure->getAdapter());
+        $this->assertInstanceOf('ZendService\Rackspace\Servers',$this->infrastructure->getAdapter());
     }
     /**
      * Test create an instance

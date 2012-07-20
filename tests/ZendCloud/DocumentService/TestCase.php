@@ -8,17 +8,17 @@
  * @package   Zend_Cloud
  */
 
-namespace ZendTest\Cloud\DocumentService;
+namespace ZendCloudTest\DocumentService;
 
-use Zend\Cloud\DocumentService\Adapter;
-use Zend\Cloud\DocumentService\Document;
-use Zend\Cloud\DocumentService\Factory;
-use Zend\Cloud\DocumentService\QueryAdapter;
+use ZendCloud\DocumentService\Adapter;
+use ZendCloud\DocumentService\Document;
+use ZendCloud\DocumentService\Factory;
+use ZendCloud\DocumentService\QueryAdapter;
 use PHPUnit_Framework_TestCase as PHPUnitTestCase;
 
 /**
  * This class forces the adapter tests to implement tests for all methods on
- * Zend\Cloud\DocumentService.
+ * ZendCloud\DocumentService.
  *
  * @category   Zend
  * @package    Zend_Cloud_DocumentService
@@ -29,7 +29,7 @@ abstract class TestCase extends PHPUnitTestCase
     /**
      * Reference to Document adapter to test
      *
-     * @var \Zend\Cloud\DocumentService
+     * @var \ZendCloud\DocumentService
      */
     protected $_commonDocument;
 
@@ -59,7 +59,7 @@ abstract class TestCase extends PHPUnitTestCase
 
     public function testDocumentService()
     {
-        $this->assertTrue($this->_commonDocument instanceof \Zend\Cloud\DocumentService\Adapter\AdapterInterface);
+        $this->assertTrue($this->_commonDocument instanceof \ZendCloud\DocumentService\Adapter\AdapterInterface);
     }
 
     public function testGetClient()
@@ -127,7 +127,7 @@ abstract class TestCase extends PHPUnitTestCase
         $this->_wait();
 
         $fetchdoc = $this->_commonDocument->fetchDocument($name, $doc->getId());
-        $this->assertTrue($fetchdoc instanceof \Zend\Cloud\DocumentService\Document, "New document not found");
+        $this->assertTrue($fetchdoc instanceof \ZendCloud\DocumentService\Document, "New document not found");
 
         $this->assertEquals($doc->name, $fetchdoc->name, "Name field wrong");
         $this->assertEquals($doc->keyword, $fetchdoc->keyword, "Keyword field wrong");
@@ -156,7 +156,7 @@ abstract class TestCase extends PHPUnitTestCase
         $this->assertFalse($fetchdoc, "Delete failed");
 
         $fetchdoc = $this->_commonDocument->fetchDocument($name, $doc2->getId());
-        $this->assertTrue($fetchdoc instanceof \Zend\Cloud\DocumentService\Document, "New document not found");
+        $this->assertTrue($fetchdoc instanceof \ZendCloud\DocumentService\Document, "New document not found");
         $this->assertEquals($doc2->name, $fetchdoc->name, "Name field wrong");
 
         $this->_commonDocument->deleteCollection($name);
@@ -179,7 +179,7 @@ abstract class TestCase extends PHPUnitTestCase
         $this->_commonDocument->replaceDocument($name, $newdoc);
 
         $fetchdoc = $this->_commonDocument->fetchDocument($name, $doc1->getId());
-        $this->assertTrue($fetchdoc instanceof \Zend\Cloud\DocumentService\Document, "New document not found");
+        $this->assertTrue($fetchdoc instanceof \ZendCloud\DocumentService\Document, "New document not found");
         $this->assertEquals($doc3->name, $fetchdoc->name, "Name field did not update");
         $this->assertEquals($doc3->keyword, $fetchdoc->keyword, "Keywords did not update");
 
@@ -200,7 +200,7 @@ abstract class TestCase extends PHPUnitTestCase
         $this->_wait();
 
         $fetchdoc = $this->_commonDocument->fetchDocument($name, $doc->getId());
-        $this->assertTrue($fetchdoc instanceof \Zend\Cloud\DocumentService\Document, "New document not found");
+        $this->assertTrue($fetchdoc instanceof \ZendCloud\DocumentService\Document, "New document not found");
         $this->assertEquals($doc1->name, $fetchdoc->name, "Name field did not update");
 
          $this->_commonDocument->deleteCollection($name);
@@ -219,7 +219,7 @@ abstract class TestCase extends PHPUnitTestCase
         $this->_wait();
 
         $fetchdoc = $this->_commonDocument->fetchDocument($name, $doc1->getId());
-        $this->assertTrue($fetchdoc instanceof \Zend\Cloud\DocumentService\Document, "New document not found");
+        $this->assertTrue($fetchdoc instanceof \ZendCloud\DocumentService\Document, "New document not found");
         $this->assertEquals($doc2->name, $fetchdoc->name, "Name field did not update");
         $this->assertEquals($doc2->keyword, $fetchdoc->keyword, "Keywords did not update");
 
@@ -240,7 +240,7 @@ abstract class TestCase extends PHPUnitTestCase
         $this->_wait();
 
         $fetchdoc = $this->_commonDocument->fetchDocument($name, $doc2->getId());
-        $this->assertTrue($fetchdoc instanceof \Zend\Cloud\DocumentService\Document, "New document not found");
+        $this->assertTrue($fetchdoc instanceof \ZendCloud\DocumentService\Document, "New document not found");
         $this->assertEquals($doc3->name, $fetchdoc->name, "Name field did not update");
         $this->assertEquals($doc3->keyword, $fetchdoc->keyword, "Keywords did not update");
 
@@ -271,7 +271,7 @@ abstract class TestCase extends PHPUnitTestCase
 
         // query by ID
         $query = $this->_commonDocument->select();
-        $this->assertTrue($query instanceof \Zend\Cloud\DocumentService\QueryAdapter);
+        $this->assertTrue($query instanceof \ZendCloud\DocumentService\QueryAdapter);
         $query->from($name)->whereId($doc[1]->getId());
         $fetchdocs = $this->_commonDocument->query($name, $query);
         $this->assertEquals(1, count($fetchdocs), 'Query: ' . $query->assemble() . "\nDocuments:\n" . var_export($fetchdocs, 1));
@@ -339,7 +339,7 @@ abstract class TestCase extends PHPUnitTestCase
     public function setUp()
     {
         $this->_config = $this->_getConfig();
-        $this->_commonDocument = \Zend\Cloud\DocumentService\Factory::getAdapter($this->_config);
+        $this->_commonDocument = \ZendCloud\DocumentService\Factory::getAdapter($this->_config);
         parent::setUp();
     }
 
@@ -361,7 +361,7 @@ abstract class TestCase extends PHPUnitTestCase
     {
         $id = $arr[self::ID_FIELD];
         unset($arr[self::ID_FIELD]);
-        return new \Zend\Cloud\DocumentService\Document($arr, $id);
+        return new \ZendCloud\DocumentService\Document($arr, $id);
     }
 
     protected function _loadData($name)

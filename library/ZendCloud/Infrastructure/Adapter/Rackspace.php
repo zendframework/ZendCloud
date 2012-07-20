@@ -8,14 +8,14 @@
  * @package   Zend_Cloud
  */
 
-namespace Zend\Cloud\Infrastructure\Adapter;
+namespace ZendCloud\Infrastructure\Adapter;
 
 use Traversable;
-use Zend\Cloud\Infrastructure\Image;
-use Zend\Cloud\Infrastructure\ImageList;
-use Zend\Cloud\Infrastructure\Instance;
-use Zend\Cloud\Infrastructure\InstanceList;
-use Zend\Service\Rackspace\Servers as RackspaceServers;
+use ZendCloud\Infrastructure\Image;
+use ZendCloud\Infrastructure\ImageList;
+use ZendCloud\Infrastructure\Instance;
+use ZendCloud\Infrastructure\InstanceList;
+use ZendService\Rackspace\Servers as RackspaceServers;
 use Zend\Stdlib\ArrayUtils;
 
 /**
@@ -133,7 +133,7 @@ class Rackspace extends AbstractAdapter
 
         try {
             $this->rackspace = new RackspaceServers($this->accessUser,$this->accessKey, $this->region);
-        } catch (\Zend\Service\Rackspace\Exception  $e) {
+        } catch (\ZendService\Rackspace\Exception  $e) {
             throw new Exception\RuntimeException('Error on create: ' . $e->getMessage(), $e->getCode(), $e);
         }
 
@@ -474,7 +474,7 @@ class Rackspace extends AbstractAdapter
     /**
      * Get the adapter
      *
-     * @return \Zend\Service\Rackspace\Servers
+     * @return \ZendService\Rackspace\Servers
      */
     public function getAdapter()
     {
