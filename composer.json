@@ -21,7 +21,7 @@
     ],
     "require": {
         "php": ">=5.3.3",
-        "zendframework/zend-stdlib": "self.version"
+        "zendframework/zend-stdlib": ">=2.0.0"
     },
     "suggest": {
         "zendframework/zendservice-amazon": "ZendService\\Amazon component",
@@ -29,5 +29,10 @@
         "zendframework/zendservice-gogrid": "ZendService\\GoGrid component",
         "zendframework/zendservice-windowsazure": "ZendService\\WindowsAzure component",
         "zendframework/zendservice-nivanix": "ZendService\\Nirvanix component"
+    },
+    "extra": {
+        "branch-alias": {
+            "dev-master": "2.0.x-dev"
+        }
     }
 }
