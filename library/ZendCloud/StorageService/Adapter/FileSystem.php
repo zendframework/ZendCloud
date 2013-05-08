@@ -96,7 +96,9 @@ class FileSystem implements AdapterInterface
     {
         $path = $this->_getFullPath($destinationPath);
         file_put_contents($path, $data);
-        chmod($path, 0777);
+        if (isset($options['chmod'])) {
+            chmod($path, $options['chmod']);
+        }
     }
 
     /**

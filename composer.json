@@ -22,6 +22,11 @@
     "require": {
         "php": ">=5.3.3",
         "zendframework/zend-stdlib": ">=2.0.0"
+
+    },
+    "require-dev": {
+        "zendframework/zend-config": ">=2.0.0",
+        "zendframework/zend-http": ">=2.0.0"
     },
     "suggest": {
         "zendframework/zendservice-amazon": "ZendService\\Amazon component",
