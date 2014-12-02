@@ -12,7 +12,7 @@ namespace ZendCloud\QueueService\Adapter;
 
 use Traversable;
 use ZendCloud\QueueService\Exception;
-use Zend\Queue\Queue;
+use ZendQueue\Queue;
 use Zend\Stdlib\ArrayUtils;
 
 /**
